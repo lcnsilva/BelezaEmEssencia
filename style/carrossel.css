@@ -1,0 +1,260 @@
+.swiper-slide img{
+    width: 100%;
+    height: 250px;
+}
+
+.swiper-button-prev, .swiper-button-next {
+    display: none;
+}
+
+
+.swiper-pagination {
+    position: initial;
+    margin: 0.5em 0;    
+}
+
+.swiper {
+    width: 90%;
+    padding: 0 0 3em 0;
+}
+
+.container__banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 1em;
+}
+
+.banner-liz{
+    background: url(../img/body/bannerLiz2.webp);
+    background-size: contain;
+    background-repeat:repeat-x;
+    display: inline-block;
+    background-position:center;
+    width: 100%;
+    height: 100px;
+}
+
+.banner-lily{
+    background: url(../img/body/bannerLily.webp);
+    background-size: contain;
+    background-repeat:repeat-x;
+    display: inline-block;
+    background-position:center;
+    width: 100%;
+    height: 100px;
+}
+
+.banner-coffee {
+    background: url(../img/body/bannerCoffee.webp);
+    background-size: contain;
+    background-repeat:repeat-x;
+    display: inline-block;
+    background-position:center;
+    width: 100%;
+    height: 100px;
+}
+
+.carrossel__titulo {
+    font-family: 'Poppins', sans-serif;
+    background-color: d;
+    color: black;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 1em 0 0.5em 0;
+}
+
+.carrossel__texto {
+    font-family: 'Poppins' sans-serif;
+    font-size: 16px;
+    text-align: center;
+    padding: 16px;
+}
+
+.container__sobre{
+    padding: 1.5em;
+}
+
+.container__banner-info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.info__liz {
+    padding: 1em;
+    font-family: "Raleway", sans-serif;
+    width: 90%;
+    text-align: justify;
+    display: inline-block;
+}
+
+.info__liz-titulo {
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+.info-lily{
+    padding: 1em;
+    font-family: "Raleway", sans-serif;
+    width: 90%;
+    text-align: justify;
+    display: inline-block;
+}
+
+.info-coffee{
+    padding: 1em;
+    font-family: "Raleway", sans-serif;
+    width: 90%;
+    text-align: justify;
+    display: inline-block;
+}
+
+.titulo__lily, .titulo__coffee{
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+.container__card {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid white;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin: 1em;
+    padding: 1em;
+}
+
+.titulo__universo{
+    display: flex;
+    margin-left: 2em;
+    font-size: 23px;
+}
+
+.container__card-preço {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.container__card-compras {
+    background-color: url(../img/header/);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+
+.container__card-favoritos {
+    background: url(../img/header/curtidas.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    width: 35px;
+    height: 32px;    
+}
+
+@media screen and (min-width: 768px){
+    .swiper{
+        width: 70%;
+    }
+
+    .swiper-slide img{
+        width: 100%;
+        height: 400px;
+    }
+
+    .banner-liz, .banner-coffee, .banner-lily {
+        height: 200px;
+   }
+}
+
+@media screen and (min-width: 1024px){
+    .swiper{
+        width: 60%;
+   }
+
+}
+
+@media screen and (min-width: 1280px){
+    .swiper{
+        width: 100%;
+        padding: 0;
+   }
+
+   .swiper-wrapper {
+        width: 100%;
+   }
+
+   .container__card {
+        width: 100%;
+        margin: 0;
+   }
+
+   .info-lily, .info__liz, .info-coffee {
+        width: 65%;
+   }
+
+   .swiper-slide img{
+        width: 100%;
+    }
+
+   .banner-liz, .banner-coffee, .banner-lily {
+        height: 250px;
+   }
+   
+   .card1 {
+        display: none;
+   }
+
+   .swiper-button-prev, .swiper-button-next {
+        display: block;
+        color: burlywood;
+    }
+
+    .container__banner-info{
+        display: flex;
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 1920px){
+    .swiper{
+        width: 75%;
+        padding: 0;
+   }
+   .container__card {
+        width: 100%;
+        margin: 0;
+   }
+
+   .info-lily, .info__liz, .info-coffee {
+    width: 75%;
+}
+
+
+}
+
+@media screen and (min-width: 2560px){
+    .swiper{
+        width: 65%;
+        padding: 0;
+   }
+
+   .swiper-wrapper {
+        width: 100%;
+   }
+
+   .container__card {
+        width: 100%;
+        margin: 0;
+   }
+
+}

@@ -1,0 +1,47 @@
+@import url("./style/header.css");
+@import url("./style/pesquisa.css");
+@import url("./style/carrossel.css");
+@import url("./style/rodape.css");
+@import url("./style/login.css");
+@import url("./style/produtos.css");
+@import url("./style/sobre.css");
+@import url("./style/contato.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Indie+Flower&family=Pacifico&family=Satisfy&family=Shadows+Into+Light&family=Whisper&family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*  
+ font-family: "Great Vibes", cursive;
+  font-family: "Zeyada", cursive;
+  font-family: "Amatic SC", sans-serif;
+  font-family: "Amatic SC", sans-serif;
+  font-family: "Whisper", cursive;
+  font-family: "Indie Flower", cursive;
+  font-family: "Satisfy", cursive; - *
+  font-family: "Shadows Into Light", cursive;
+  font-family: "Caveat", cursive;
+  font-family: "Dancing Script", cursive; *
+  font-family: "Pacifico", cursive;
+
+ */
+
+
+:root{
+    --fonte-principal:"Montserrat", sans-serif;
+    --cor-principal: #490964;
+    --cor-de-fundo: #ffffff;
+    --cor-de-fundo-secundaria: #F7EBEC;
+    --cor-fonte-principal: #ffffff;
+    --cor-fonte-secundaria: #490964;
+    --fonte-logo: "Caveat", cursive;
+    --fonte-banner: font-family: "Raleway", sans-serif;
+}
+
+body{
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 600;
+    background-color: var(--cor-de-fundo-secundaria);
+}
+
+
