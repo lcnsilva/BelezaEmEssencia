@@ -1,260 +1,328 @@
-.swiper-slide img{
+.swiper-slide {
     width: 100%;
-    height: 250px;
+    /*padding: 0 0 0 0.5em;*/
 }
 
-.swiper-button-prev, .swiper-button-next {
+#swiper {
+    width: 100%;
+    padding: 1.5em 0em;
+}
+
+#swiper-promocao {
+    width: 100%;
+    padding: 0 0 2em 0;
+}
+
+
+.carrossel-banner-desktop {
     display: none;
 }
 
-
-.swiper-pagination {
-    position: initial;
-    margin: 0.5em 0;    
-}
-
-.swiper {
-    width: 90%;
-    padding: 0 0 3em 0;
-}
-
-.container__banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding-bottom: 1em;
-}
-
-.banner-liz{
-    background: url(../img/body/bannerLiz2.webp);
-    background-size: contain;
-    background-repeat:repeat-x;
-    display: inline-block;
-    background-position:center;
-    width: 100%;
-    height: 100px;
-}
-
-.banner-lily{
-    background: url(../img/body/bannerLily.webp);
-    background-size: contain;
-    background-repeat:repeat-x;
-    display: inline-block;
-    background-position:center;
-    width: 100%;
-    height: 100px;
-}
-
-.banner-coffee {
-    background: url(../img/body/bannerCoffee.webp);
-    background-size: contain;
-    background-repeat:repeat-x;
-    display: inline-block;
-    background-position:center;
-    width: 100%;
-    height: 100px;
-}
-
-.carrossel__titulo {
-    font-family: 'Poppins', sans-serif;
-    background-color: d;
-    color: black;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 18px;
-    font-weight: 700;
-    padding: 1em 0 0.5em 0;
-}
-
-.carrossel__texto {
-    font-family: 'Poppins' sans-serif;
-    font-size: 16px;
-    text-align: center;
-    padding: 16px;
-}
-
-.container__sobre{
-    padding: 1.5em;
-}
-
-.container__banner-info {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.info__liz {
-    padding: 1em;
-    font-family: "Raleway", sans-serif;
-    width: 90%;
-    text-align: justify;
-    display: inline-block;
-}
-
-.info__liz-titulo {
-    font-size: 30px;
-    padding-bottom: 10px;
-}
-
-.info-lily{
-    padding: 1em;
-    font-family: "Raleway", sans-serif;
-    width: 90%;
-    text-align: justify;
-    display: inline-block;
-}
-
-.info-coffee{
-    padding: 1em;
-    font-family: "Raleway", sans-serif;
-    width: 90%;
-    text-align: justify;
-    display: inline-block;
-}
-
-.titulo__lily, .titulo__coffee{
-    font-size: 30px;
-    padding-bottom: 10px;
-}
-
 .container__card {
-    height: auto;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border: 1px solid white;
     box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    margin: 1em;
-    padding: 1em;
+    padding: 0.5em;
+    background-color: var(--cor-de-fundo);
 }
 
-.titulo__universo{
-    display: flex;
-    margin-left: 2em;
-    font-size: 23px;
+
+.container__banner-promocao img{
+    width: 100%;
+    height: 400px;
 }
 
-.container__card-preço {
+.container__card-imagem img {
+    width: 100%;
+    height: 250px;
+}
+
+.titulo-card {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0.5em 0;
+}
+
+.descricao-card {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 0 0.5em 0;
+}
+
+.titulo-preco {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.subtitulo-preco {
+    font-size: 15px;
+    font-weight: 400;
+    padding: 0 0 0.5em 0;
+}
+
+.container__precos {
     display: flex;
-    justify-content: space-between;
+    padding: 0.5em 0;
+}
+
+.titulo-promocao {
+    font-size: 20px;
+    font-weight: 400;
+    padding: 0.5em 0;
+    text-decoration: line-through;
+}
+
+.botao__icone-carrinho {
+    background-image: url(../img/header/compras.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+}
+
+.botao__carrinho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-principal);
+    color: var(--cor-fonte-principal);
+    font-size: 20px;
+    text-decoration: none;
+    border: 1px solid var(--cor-fonte-principal);
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
     gap: 10px;
+    padding: 0.5em 0;    
 }
 
-.container__card-compras {
-    background-color: url(../img/header/);
+.botao__carrinho:hover {
+    background-color: rgba(73, 9, 100, 0.95);
+}
+
+.botao__carrinho:active {
+    background-color: rgba(73, 9, 100, 0.8);
+}
+
+.icone__card-favorito {
+    background-image: url(../img/header/curtidaproduto.svg);
     background-repeat: no-repeat;
     background-size: cover;
     display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 0.5em;
+    left: 1em;
+    background-color: rgba(240, 240, 240, 0.8);
+    border-radius: 50px;
 }
 
-.container__card-favoritos {
-    background: url(../img/header/curtidas.svg);
+.icone__card-favorito-preenchido {
+    background-image: url(../img/header/curtidaprodutopreenchido.svg);
     background-repeat: no-repeat;
     background-size: cover;
     display: inline-block;
-    width: 35px;
-    height: 32px;    
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 0.5em;
+    left: 1em;
+    background-color: rgba(240, 240, 240, 0.8);
+    border-radius: 50px;
+}
+
+.container__card-rating {
+    display: flex;
+}
+
+.container__banner-liz {
+    width: 100%;
+    height: 10vh;
+    background-image: url("../img/body/bannerLiz.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+}
+
+.container__banner-texto{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 0 1em;
+    text-align: justify;
+}
+
+.container__banner-titulo {
+    font-size: 24px;
+    font-weight: 700;
+    padding: 0.5em 0.7em;
+}
+
+.container__banner-lily {
+    width: 100%;
+    height: 10vh;
+    background-image: url("../img/body/bannerLily2.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+}
+
+.container__banner-coffee {
+    width: 100%;
+    height: 10vh;
+    background-image: url("../img/body/bannerCoffee.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
 }
 
 @media screen and (min-width: 768px){
-    .swiper{
-        width: 70%;
+    #swiper {
+        width: 80%;
+        padding: 1.5em 0.5em;
+    }
+    
+    #swiper-promocao {
+        width: 80%;
+        padding: 0 0 2em 0
+    }
+    
+    .container__banner-liz, .container__banner-lily, .container__banner-coffee {
+        background-repeat:repeat;
+        background-size: contain;
     }
 
-    .swiper-slide img{
+    .container__card {
         width: 100%;
-        height: 400px;
+        height: 100%;
+        padding: 0.5em;
     }
 
-    .banner-liz, .banner-coffee, .banner-lily {
-        height: 200px;
-   }
+    .container__titulo-liz, .container__titulo-lily, .container__titulo-coffee{
+        width: 80%;
+    }
+
+    .container__banner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    
 }
 
 @media screen and (min-width: 1024px){
-    .swiper{
-        width: 60%;
-   }
+    #swiper {
+        width: 80%;
+        padding: 1.5em 0.5em;
+    }
+    
+    #swiper-promocao {
+        width: 70%;
+        padding: 0 0 2em 0
+    }
+
+    .swiper-slide {
+        height: 490px;
+        padding: 0 0 0 0;
+    }
+
+    .container__banner-titulo{
+        width: 100%;
+    }
+    
+    .container__banner-texto{
+        width: 100%;
+    }
+
+    .container__titulo-liz, .container__titulo-lily, .container__titulo-coffee{
+        width: 80%;
+    }
+
+    .container__banner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container__card {
+        width: 100%;
+        height: 100%;
+        padding: 0.5em;
+    }
+    
 
 }
 
-@media screen and (min-width: 1280px){
-    .swiper{
-        width: 100%;
-        padding: 0;
-   }
-
-   .swiper-wrapper {
-        width: 100%;
-   }
-
-   .container__card {
-        width: 100%;
-        margin: 0;
-   }
-
-   .info-lily, .info__liz, .info-coffee {
-        width: 65%;
-   }
-
-   .swiper-slide img{
-        width: 100%;
+@media screen and (min-width: 1280px) {
+    #swiper {
+        width: 60%;
+        padding: 1.5em 0.5em;
+    }
+    
+    #swiper-promocao {
+        width: 60%;
+        padding: 0 0 2em 0
     }
 
-   .banner-liz, .banner-coffee, .banner-lily {
-        height: 250px;
-   }
-   
-   .card1 {
+    .swiper-slide {
+        height: 490px;
+        padding: 0 0 0 0;
+    }
+
+    .container__titulo-liz, .container__titulo-lily, .container__titulo-coffee{
+        width: 60%;
+    }
+
+    .carrossel-banner-mobile {
         display: none;
-   }
+    }
 
-   .swiper-button-prev, .swiper-button-next {
+    .carrossel-banner-desktop {
         display: block;
-        color: burlywood;
     }
 
-    .container__banner-info{
-        display: flex;
-        width: 100%;
-    }
 
 }
 
 @media screen and (min-width: 1920px){
-    .swiper{
-        width: 75%;
-        padding: 0;
-   }
-   .container__card {
-        width: 100%;
-        margin: 0;
-   }
+    #swiper {
+        width: 50%;
+        padding: 1.5em 0.5em;
+    }
 
-   .info-lily, .info__liz, .info-coffee {
-    width: 75%;
+    .swiper-pagination {
+        padding: 1em 0;
+    }
+   
+    #swiper-promocao {
+        width: 50%;
+        padding: 0 0 2em 0
+    }    
+
+    .container__titulo-liz, .container__titulo-lily, .container__titulo-coffee{
+        width: 50%;
+    }
+
+    .container__banner-coffee, .container__banner-lily, .container__banner-liz {
+        height: 15vh;
+    }
 }
 
-
+@media screen and (min-width: 2560px) {
+    .container__card {
+        width: 88%;
+        height: 100%;
+        padding: 0.5em;
+    }
+    
 }
 
-@media screen and (min-width: 2560px){
-    .swiper{
-        width: 65%;
-        padding: 0;
-   }
-
-   .swiper-wrapper {
-        width: 100%;
-   }
-
-   .container__card {
-        width: 100%;
-        margin: 0;
-   }
-
-}

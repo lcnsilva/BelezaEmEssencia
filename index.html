@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beleza em Essência</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style.css">
@@ -15,8 +17,12 @@
 <body>
 
     <header class="cabeçalho">
+        <div class="container__promocao">
+            <div class="promocao__header">
+                <span class="promocao__header-texto">Produtos com até 70% de desconto!</span>
+            </div>
+        </div>
         <div class="container__header">
-            
             <div class="container__header-menu">
                 <div class="container__menu">
                     <div class="container__menu-icon">
@@ -24,395 +30,675 @@
                         <label for="abrirMenu">
                             <span class="menu__hamburguer"></span>
                         </label>
-                    </div>                    
-                    <ul id="lista__menu" >
+                    </div>
+                    <ul id="lista__menu">
                         <li class="lista__item">
                             <a href="./index.html" class="lista__link">Home</a>
                         </li>
                         <li class="lista__item">
-                            <a href="./produtos.html" class="lista__link">Todos os produtos</a>
+                            <a href="./index.html" class="lista__link">Todos os produtos</a>
                         </li>
                         <li class="lista__item">
-                            <a href="./sobre.html" class="lista__link">Sobre</a>
+                            <a href="./index.html" class="lista__link">Sobre</a>
                         </li>
                         <li class="lista__item">
-                            <a href="./contato.html" class="lista__link">Contato</a>
+                            <a href="./index.html" class="lista__link">Contato</a>
                         </li>
                     </ul>
                 </div>
                 <div class="container__logo">
-                    <span class="logo"><strong class="logo-beleza">Beleza</strong> 
-                        <br><span class="logo-essencia">em Essência</span></span>
+                    <a href="./index.html" style="text-decoration: none;"><span class="logo"><strong
+                                class="logo-beleza">Beleza</strong>
+                            <br><span class="logo-essencia">em Essência</span></span></a>
                 </div>
-            </div>
-
-            
-
-            <div class="container__menu-desktop">
-                <ul class="lista__menu-desktop" >
-                    <li class="lista__item-desktop">
-                        <a href="./index.html" class="lista__link-desktop">Home</a>
-                    </li>
-                    <li class="lista__item-desktop">
-                        <a href="./produtos.html" class="lista__link-desktop">Todos os produtos</a>
-                    </li>
-                    <li class="lista__item-desktop">
-                        <a href="./sobre.html" class="lista__link-desktop">Sobre</a>
-                    </li>
-                    <li class="lista__item-desktop">
-                        <a href="./contato.html" class="lista__link-desktop">Contato</a>
-                    </li>
-                </ul>
             </div>
 
             <div class="container__header-compras">
                 <div class="container__login">
                     <label for="abrirPerfil">
-                        <a href=""><span class="icone__login"></span></a>
-                    </label>         
+                        <a href="" id="botaoLoginIcone"><span class="icone__login"></span></a>
+                    </label>
                     <label for="abrirPerfil" class="icone__login-desktop">
-                        <span class="icone__login-texto">Entrar na <br><a href=""><strong>Minha Conta</a></strong></span>
+                        <span class="icone__login-texto">Entrar na <br><strong><a href="" id="botaoLogin"">Minha Conta</a></strong></span>
                     </label>           
                 </div>
-                <div class="container__favoritos">
-                    <label for="abrirFavoritos">
-                        <a href="#"><span class="icone__favoritos"></span></a>
-                    </label>
-                    <label for="abrirPerfil">
-                        <span class="icone__favoritos-texto"><a href="#">Favoritos</a></span>
-                    </label> 
+                <div class=" container__favoritos">
+                                    <label for="abrirFavoritos">
+                                        <a href="#"><span class="icone__favoritos"></span></a>
+                                    </label>
+                                    <label for="abrirPerfil">
+                                        <span class="icone__favoritos-texto"><a href="#">Favoritos</a></span>
+                                    </label>
                 </div>
                 <div class="container__compras">
                     <label for="abrirCompras">
-                        <a href="#"><span class="icone__compras"></span></a>
+                        <a href="#"><span class="icone__compras">
+                                <span id="comprasCarrinho">0</span>
+                            </span></a>
                     </label>
                     <label for="abrirPerfil">
                         <span class="icone__compras-texto"><a href="" class="">Minhas Compras</a></span>
-                    </label> 
+                    </label>
                 </div>
             </div>
         </div>
+        <div class="container__submenu">
+            <div class="container__menu-desktop">
+                <ul class="lista__menu-desktop">
+                    <li class="lista__item-desktop">
+                        <a href="./index.html" class="lista__link-desktop">Home</a>
+                    </li>
+                    <li class="lista__item-desktop">
+                        <a href="./index.html" class="lista__link-desktop">Todos os produtos</a>
+                    </li>
+                    <li class="lista__item-desktop">
+                        <a href="./index.html" class="lista__link-desktop">Sobre</a>
+                    </li>
+                    <li class="lista__item-desktop">
+                        <a href="./index.html" class="lista__link-desktop">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
     </header>
 
     <section class="pesquisa">
         <div class="container__pesquisa">
-                <input type="search" placeholder="O que você procura?" name="search" class="container__pesquisa-input">
+            <input type="search" placeholder="O que você procura?" name="search" class="container__pesquisa-input">
         </div>
     </section>
-</div>
+
+    <section>
+        <div class="container__modal">
+            <div class="modal">
+                <div class="modal__header">
+                    <a href="" id="fecharLogin"><i class="modal__fechar-icon"></i></a>                    
+                </div>
+                <div class="modal__body">
+                    <span class="modal__login">Login</span>
+                    <form action="" class="modal__body-form" data-formulario>
+                        <div class="modal__body-form">  
+                            <input type="text" id="username" name="username" class="input__modal" placeholder="Insira o nome do usuário:" minlength="3" required>
+                            <span class="mensagem__erro"></span>
+                            
+                        </div>
+                        <div class="modal__body-form">
+                            <input type="password" name="password" id="password" class="input__modal" placeholder="Insira a senha:" minlength="4" required>
+                            <span class="mensagem__erro"></span>
+                        </div>
+                        
+                        <input type="submit" value="Entrar" class="botao__modal">
+                    </form>
+                </div>
+                <div class="modal__footer">
+                    <span>Ainda não é membro? <a href="">Cadastre-se</a></span>
+                </div>
+            </div>      
+        </div>
+    </section>
+
+    <section class="carrossel carrossel-banner-mobile">
+        <!-- Slider main container -->
+        <div class="swiper" id="swiper-promocao">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="container__banner-promocao">
+                        <img src="./img/carrossel/promocoes/nativa-spa-promocao.webp" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__banner-promocao">
+                        <img src="./img/carrossel/promocoes/liz-flora-promocao.webp" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__banner-promocao">
+                        <img src="./img/carrossel/promocoes/kit-promocao.webp" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__banner-promocao">
+                        <img src="./img/carrossel/promocoes/show-de-banho-promocao.webp" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__banner-promocao">
+                        <img src="./img/carrossel/promocoes/zaad.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+        </div>
+    </section>
+
+    <section class="carrossel carrossel-banner-desktop">
+        <!-- Slider main container -->
+        <div class="swiper" id="swiper-promocao">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="container__banner-promocao">
+                        <img src="./img/carrossel/promocoes-desktop/promocao-body-splash.webp" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__banner-promocao">
+                        <img src="./img/carrossel/promocoes-desktop/promocao-botik.webp" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__banner-promocao">
+                        <img src="./img/carrossel/promocoes-desktop/promocao-liz-flora.webp" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__banner-promocao">
+                        <img src="./img/carrossel/promocoes-desktop/promocao-make-b.webp" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__banner-promocao">
+                        <img src="./img/carrossel/promocoes-desktop/promocao-relampago.webp" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__banner-promocao">
+                        <img src="./img/carrossel/promocoes-desktop/promocao-selecao-imperdivel.webp" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__banner-promocao">
+                        <img src="./img/carrossel/promocoes-desktop/promocao-zaad.webp" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+        </div>
+    </section>
+
     <section class="carrossel">
         <div class="container__banner">
-            <div class="banner-liz">
-                
+            <div class="container__banner-liz">
+
+            </div>
+            <div class="container__titulo-liz">
+                <h2 class="container__banner-titulo">Liz</h2>
+                <p class="container__banner-texto">Liz traz a exclusiva Base de Laire Íris Nobre, uma fórmula que, para
+                    alcançar o seu melhor, leva anos para ser produzida.</p>
             </div>
         </div>
-        <div class="container__banner-info">
-            <div class="info__liz">
-                <h3 class="info__liz-titulo">Liz</h3>
-                <p class="info__liz-texto">Liz traz a exclusiva Base de Laire Íris Nobre, uma fórmula que, para alcançar o seu melhor, leva anos para ser produzida. Conheça a linha completa da nova fragrância intensa e marcante do Boticário!
-                </p>           
-            </div>
-        </div>
-        
-        <div class="carrossel__container">
-            <!-- Slider main container -->
-            
-            <div class="swiper">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide">
-                        <div class="container__card">
-                            <div class="container__card-imagem">
-                                <img src="./img/carrossel/liz1.webp">
-                            </div>
-                            <div class="container__card-preco">
-                                <div class="produto__texto">
-                                    <p class="produto__nome">Liz Flora</p>
-                                    <p class="produto__preco">R$ 149,90</p>
-                                </div>
-                                <div class="produto__icones">
-                                    <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
-                                </div>
-                            </div>
+        <!-- Slider main container -->
+        <div class="swiper" id="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="container__card">
+                        <div class="container__card-imagem">
+                            <img src="./img/carrossel//liz/liz1.webp" alt="">
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="container__card">
-                            <div class="container__card-imagem">
-                                <img src="./img/carrossel/liz2.jpg">
-                            </div>
-                            <div class="container__card-preco">
-                                <div class="produto__texto">
-                                    <p class="produto__nome">Liz Sublime</p>
-                                    <p class="produto__preco">R$ 149,90</p>
-                                </div>
-                                <div class="produto__icones">
-                                    <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
-                                </div>
-                            </div>
+                        <div class="container__card-titulo">
+                            <h3 class="titulo-card">LIZ</h3>
+                            <p class="descricao-card">Flora Desodorante Colônia 100ml</p>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="container__card">
-                            <div class="container__card-imagem">
-                                <img src="./img/carrossel/liz3.jpg">
-                            </div>
-                            <div class="container__card-preco">
-                                <div class="produto__texto">
-                                    <p class="produto__nome">Liz</p>
-                                    <p class="produto__preco">R$ 149,90</p>
-                                </div>
-                                <div class="produto__icones">
-                                    <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
-                                </div>
-                            </div>
+                        <div class="container__card-rating">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating-vazia.svg">
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="container__card">
-                            <div class="container__card-imagem">
-                                <img src="./img/carrossel/liz4.webp">
+                        <div class="container__card-preco">
+                            <div class="container__precos">
+                                <h3 class="titulo-promocao"></h3>
+                                <h3 class="titulo-preco">R$ 498,90</h3>
                             </div>
-                            <div class="container__card-preco">
-                                <div class="produto__texto">
-                                    <p class="produto__nome">Liz Intenso</p>
-                                    <p class="produto__preco">R$ 159,90</p>
-                                </div>
-                                <div class="produto__icones">
-                                    <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
-                                </div>
-                            </div>
+                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                        </div>
+                        <div class="container__card-botao">
+                            <a href="" class="botao__favorito"><i class="icone__card-favorito"
+                                    id="iconeFavorito"></i></a>
+                            <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
                         </div>
                     </div>
                 </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
-        
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
-            </div>
-        </div>
-        <div class="container__banner">
-            <div class="banner-lily">
-                
-            </div>
-        </div>
-        <div class="container__banner-info">
-            <div class="info-lily">
-               <h2 class="titulo__lily">Lily</h2>
-                <p>Através do raro processo artesanal de enfleurage, os eaux de parfum de Lily possuem em sua essência as melhores notas dos lírios, criando fragrâncias únicas, delicadas e marcantes. Conheça também Lily Le Parfum, o perfume de Lily com uma riqueza olfativa encantadora e sofisticada.</p>
-            </div>
-        </div>
-
-        <div class="carrossel__container">
-            <!-- Slider main container -->
-            <div class="swiper">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide">
-                        <div class="container__card">
-                            <div class="container__card-imagem">
-                                <img src="./img/carrossel/lily1.webp">
+                <div class="swiper-slide">
+                    <div class="container__card">
+                        <div class="container__card-imagem">
+                            <img src="./img/carrossel/liz/liz2.jpg" alt="">
+                        </div>
+                        <div class="container__card-titulo">
+                            <h3 class="titulo-card">LIZ</h3>
+                            <p class="descricao-card">Sublime Desodorante Colônia 100ml</p>
+                        </div>
+                        <div class="container__card-rating">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating-vazia.svg">
+                        </div>
+                        <div class="container__card-preco">
+                            <div class="container__precos">
+                                <h3 class="titulo-promocao"></h3>
+                                <h3 class="titulo-preco">R$ 498,90</h3>
                             </div>
-                            <div class="container__card-preco">
-                                <div class="produto__texto">
-                                    <p class="produto__nome">Produto</p>
-                                    <p class="produto__preco">R$ 39,99</p>
-                                </div>
-                                <div class="produto__icones">
-                                    <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
-                                </div>
-                            </div>
+                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                        </div>
+                        <div class="container__card-botao">
+                            <a href="" class="botao__favorito"><i class="icone__card-favorito"
+                                    id="iconeFavorito"></i></a>
+                            <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="container__card">
-                            <div class="container__card-imagem">
-                                <img src="./img/carrossel/lily2.webp">
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__card">
+                        <div class="container__card-imagem">
+                            <img src="./img/carrossel/liz/liz3.jpg" alt="">
+                        </div>
+                        <div class="container__card-titulo">
+                            <h3 class="titulo-card">LIZ</h3>
+                            <p class="descricao-card">Desodorante Colônia 100ml</p>
+                        </div>
+                        <div class="container__card-rating">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating-vazia.svg">
+                        </div>
+                        <div class="container__card-preco">
+                            <div class="container__precos">
+                                <h3 class="titulo-promocao"></h3>
+                                <h3 class="titulo-preco">R$ 498,90</h3>
                             </div>
-                            <div class="container__card-preco">
-                                <div class="produto__texto">
-                                    <p class="produto__nome">Produto</p>
-                                    <p class="produto__preco">R$ 39,99</p>
-                                </div>
-                                <div class="produto__icones">
-                                    <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
-                                </div>
-                            </div>
-                        </div>                     
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="container__card">
-                            <div class="container__card-imagem">
-                                <img src="./img/carrossel/lily3.webp">
-                            </div>
-                            <div class="container__card-preco">
-                                <div class="produto__texto">
-                                    <p class="produto__nome">Produto</p>
-                                    <p class="produto__preco">R$ 39,99</p>
-                                </div>
-                                <div class="produto__icones">
-                                    <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
-                                </div>
-                            </div>
-                        </div>                      
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="container__card">
-                            <div class="container__card-imagem">
-                                <img src="./img/carrossel/lily4.webp">
-                            </div>
-                            <div class="container__card-preco">
-                                <div class="produto__texto">
-                                    <p class="produto__nome">Produto</p>
-                                    <p class="produto__preco">R$ 39,99</p>
-                                </div>
-                                <div class="produto__icones">
-                                    <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
-                                </div>
-                            </div>
-                        </div>    
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="container__card">
-                            <div class="container__card-imagem">
-                                <img src="./img/carrossel/lily5.webp">
-                            </div>
-                            <div class="container__card-preco">
-                                <div class="produto__texto">
-                                    <p class="produto__nome">Produto</p>
-                                    <p class="produto__preco">R$ 39,99</p>
-                                </div>
-                                <div class="produto__icones">
-                                    <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
-                                </div>
-                            </div>
-                        </div>    
+                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                        </div>
+                        <div class="container__card-botao">
+                            <a href="" class="botao__favorito"><i class="icone__card-favorito"
+                                    id="iconeFavorito"></i></a>
+                            <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
+                        </div>
                     </div>
                 </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
-        
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
-            </div>
-        </div>
-        <div class="container__banner">
-            <div class="banner-coffee">
-                
-            </div>
-        </div>
-
-        <div class="container__banner-info">
-            <div class="info-coffee">
-                <h2 class="titulo__coffee">Coffee</h2>
-                Para os homens que apreciam fragrâncias marcantes e que trazem notas de café, Coffee traz diversos itens de perfumaria masculina para surpreender você ou alguém que você queira presentear. Confira os produtos!
-            </div>
-        </div>
-        <div class="carrossel__container">
-            <!-- Slider main container -->
-            <div class="swiper">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide">
-                        <div class="container__card">
-                            <div class="container__card-imagem">
-                                <img src="./img/carrossel/coffee1.webp">
+                <div class="swiper-slide">
+                    <div class="container__card">
+                        <div class="container__card-imagem">
+                            <img src="./img/carrossel/liz/liz4.webp" alt="">
+                        </div>
+                        <div class="container__card-titulo">
+                            <h3 class="titulo-card">LIZ</h3>
+                            <p class="descricao-card">Intenso Desodorante Colônia 100ml</p>
+                        </div>
+                        <div class="container__card-rating">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating-vazia.svg">
+                        </div>
+                        <div class="container__card-preco">
+                            <div class="container__precos">
+                                <h3 class="titulo-promocao"></h3>
+                                <h3 class="titulo-preco">R$ 498,90</h3>
                             </div>
-                            <div class="container__card-preco">
-                                <div class="produto__texto">
-                                    <p class="produto__nome">Produto</p>
-                                    <p class="produto__preco">R$ 39,99</p>
-                                </div>
-                                <div class="produto__icones">
-                                    <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
-                                </div>
-                            </div>
-                        </div>    
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="container__card">
-                            <div class="container__card-imagem">
-                                <img src="./img/carrossel/coffee2.webp">
-                            </div>
-                            <div class="container__card-preco">
-                                <div class="produto__texto">
-                                    <p class="produto__nome">Produto</p>
-                                    <p class="produto__preco">R$ 39,99</p>
-                                </div>
-                                <div class="produto__icones">
-                                    <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
-                                </div>
-                            </div>
-                        </div>    
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="container__card">
-                            <div class="container__card-imagem">
-                                <img src="./img/carrossel/coffee3.webp">
-                            </div>
-                            <div class="container__card-preco">
-                                <div class="produto__texto">
-                                    <p class="produto__nome">Produto</p>
-                                    <p class="produto__preco">R$ 39,99</p>
-                                </div>
-                                <div class="produto__icones">
-                                    <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
-                                </div>
-                            </div>
-                        </div>    
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="container__card">
-                            <div class="container__card-imagem">
-                                <img src="./img/carrossel/coffee4.webp">
-                            </div>
-                            <div class="container__card-preco">
-                                <div class="produto__texto">
-                                    <p class="produto__nome">Produto</p>
-                                    <p class="produto__preco">R$ 39,99</p>
-                                </div>
-                                <div class="produto__icones">
-                                    <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
-                                </div>
-                            </div>
-                        </div>    
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="container__card">
-                            <div class="container__card-imagem">
-                                <img src="./img/carrossel/coffee5.webp">
-                            </div>
-                            <div class="container__card-preco">
-                                <div class="produto__texto">
-                                    <p class="produto__nome">Produto</p>
-                                    <p class="produto__preco">R$ 39,99</p>
-                                </div>
-                                <div class="produto__icones">
-                                    <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
-                                </div>
-                            </div>
-                        </div>    
+                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                        </div>
+                        <div class="container__card-botao">
+                            <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
+                            <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
+                        </div>
                     </div>
                 </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
-        
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
             </div>
         </div>
-        
     </section>
+
+    <section class="carrossel">
+        <div class="container__banner">
+            <div class="container__banner-lily">
+
+            </div>
+            <div class="container__titulo-lily">
+                <h2 class="container__banner-titulo">Lily</h2>
+                <p class="container__banner-texto">Através do raro processo artesanal de enfleurage, os eaux de parfum
+                    de Lily possuem em sua essência as melhores notas dos lírios, criando fragrâncias únicas, delicadas
+                    e marcantes. Conheça também Lily Le Parfum, o perfume de Lily com uma riqueza olfativa encantadora e
+                    sofisticada.</p>
+            </div>
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper" id="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="container__card">
+                        <div class="container__card-imagem">
+                            <img src="./img/carrossel/lily/lily1.webp" alt="">
+                        </div>
+                        <div class="container__card-titulo">
+                            <h3 class="titulo-card">LIZ</h3>
+                            <p class="descricao-card">Flora Desodorante Colônia 100ml</p>
+                        </div>
+                        <div class="container__card-rating">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating-vazia.svg">
+                        </div>
+                        <div class="container__card-preco">
+                            <div class="container__precos">
+                                <h3 class="titulo-promocao"></h3>
+                                <h3 class="titulo-preco">R$ 498,90</h3>
+                            </div>
+                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                        </div>
+                        <div class="container__card-botao">
+                            <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
+                            <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__card">
+                        <div class="container__card-imagem">
+                            <img src="./img/carrossel/lily/lily2.webp" alt="">
+                        </div>
+                        <div class="container__card-titulo">
+                            <h3 class="titulo-card">LIZ</h3>
+                            <p class="descricao-card">Sublime Desodorante Colônia 100ml</p>
+                        </div>
+                        <div class="container__card-rating">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating-vazia.svg">
+                        </div>
+                        <div class="container__card-preco">
+                            <div class="container__precos">
+                                <h3 class="titulo-promocao"></h3>
+                                <h3 class="titulo-preco">R$ 498,90</h3>
+                            </div>
+                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                        </div>
+                        <div class="container__card-botao">
+                            <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
+                            <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__card">
+                        <div class="container__card-imagem">
+                            <img src="./img/carrossel/lily/lily3.webp" alt="">
+                        </div>
+                        <div class="container__card-titulo">
+                            <h3 class="titulo-card">LIZ</h3>
+                            <p class="descricao-card">Desodorante Colônia 100ml</p>
+                        </div>
+                        <div class="container__card-rating">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating-vazia.svg">
+                        </div>
+                        <div class="container__card-preco">
+                            <div class="container__precos">
+                                <h3 class="titulo-promocao"></h3>
+                                <h3 class="titulo-preco">R$ 498,90</h3>
+                            </div>
+                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                        </div>
+                        <div class="container__card-botao">
+                            <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
+                            <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__card">
+                        <div class="container__card-imagem">
+                            <img src="./img/carrossel/lily/lily4.webp" alt="">
+                        </div>
+                        <div class="container__card-titulo">
+                            <h3 class="titulo-card">LIZ</h3>
+                            <p class="descricao-card">Intenso Desodorante Colônia 100ml</p>
+                        </div>
+                        <div class="container__card-rating">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating-vazia.svg">
+                        </div>
+                        <div class="container__card-preco">
+                            <div class="container__precos">
+                                <h3 class="titulo-promocao"></h3>
+                                <h3 class="titulo-preco">R$ 498,90</h3>
+                            </div>
+                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                        </div>
+                        <div class="container__card-botao">
+                            <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
+                            <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__card">
+                        <div class="container__card-imagem">
+                            <img src="./img/carrossel/lily/lily5.webp" alt="">
+                        </div>
+                        <div class="container__card-titulo">
+                            <h3 class="titulo-card">LIZ</h3>
+                            <p class="descricao-card">Intenso Desodorante Colônia 100ml</p>
+                        </div>
+                        <div class="container__card-rating">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating-vazia.svg">
+                        </div>
+                        <div class="container__card-preco">
+                            <div class="container__precos">
+                                <h3 class="titulo-promocao"></h3>
+                                <h3 class="titulo-preco">R$ 498,90</h3>
+                            </div>
+                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                        </div>
+                        <div class="container__card-botao">
+                            <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
+                            <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="carrossel">
+        <div class="container__banner">
+            <div class="container__banner-coffee">
+
+            </div>
+            <div class="container__titulo-coffee">
+                <h2 class="container__banner-titulo">Coffee</h2>
+                <p class="container__banner-texto">Inspirada nos mais nobres grãos de café, a marca de perfumaria Coffee
+                    do Boticário traz fragrâncias masculinas e femininas que encantam com sua riqueza olfativa! Confira
+                    os produtos e sinta o aroma do café no ar!</p>
+            </div>
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper" id="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="container__card">
+                        <div class="container__card-imagem">
+                            <img src="./img/carrossel/coffee/coffee1.webp" alt="">
+                        </div>
+                        <div class="container__card-titulo">
+                            <h3 class="titulo-card">LIZ</h3>
+                            <p class="descricao-card">Flora Desodorante Colônia 100ml</p>
+                        </div>
+                        <div class="container__card-rating">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating-vazia.svg">
+                        </div>
+                        <div class="container__card-preco">
+                            <div class="container__precos">
+                                <h3 class="titulo-promocao"></h3>
+                                <h3 class="titulo-preco">R$ 498,90</h3>
+                            </div>
+                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                        </div>
+                        <div class="container__card-botao">
+                            <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
+                            <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__card">
+                        <div class="container__card-imagem">
+                            <img src="./img/carrossel/coffee/coffee2.webp" alt="">
+                        </div>
+                        <div class="container__card-titulo">
+                            <h3 class="titulo-card">LIZ</h3>
+                            <p class="descricao-card">Sublime Desodorante Colônia 100ml</p>
+                        </div>
+                        <div class="container__card-rating">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating-vazia.svg">
+                        </div>
+                        <div class="container__card-preco">
+                            <div class="container__precos">
+                                <h3 class="titulo-promocao"></h3>
+                                <h3 class="titulo-preco">R$ 498,90</h3>
+                            </div>
+                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                        </div>
+                        <div class="container__card-botao">
+                            <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
+                            <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__card">
+                        <div class="container__card-imagem">
+                            <img src="./img/carrossel/coffee/coffee3.webp" alt="">
+                        </div>
+                        <div class="container__card-titulo">
+                            <h3 class="titulo-card">LIZ</h3>
+                            <p class="descricao-card">Desodorante Colônia 100ml</p>
+                        </div>
+                        <div class="container__card-rating">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating-vazia.svg">
+                        </div>
+                        <div class="container__card-preco">
+                            <div class="container__precos">
+                                <h3 class="titulo-promocao"></h3>
+                                <h3 class="titulo-preco">R$ 498,90</h3>
+                            </div>
+                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                        </div>
+                        <div class="container__card-botao">
+                            <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
+                            <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__card">
+                        <div class="container__card-imagem">
+                            <img src="./img/carrossel/coffee/coffee4.webp" alt="">
+                        </div>
+                        <div class="container__card-titulo">
+                            <h3 class="titulo-card">LIZ</h3>
+                            <p class="descricao-card">Intenso Desodorante Colônia 100ml</p>
+                        </div>
+                        <div class="container__card-rating">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating-vazia.svg">
+                        </div>
+                        <div class="container__card-preco">
+                            <div class="container__precos">
+                                <h3 class="titulo-promocao"></h3>
+                                <h3 class="titulo-preco">R$ 498,90</h3>
+                            </div>
+                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                        </div>
+                        <div class="container__card-botao">
+                            <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
+                            <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container__card">
+                        <div class="container__card-imagem">
+                            <img src="./img/carrossel/coffee/coffee5.webp" alt="">
+                        </div>
+                        <div class="container__card-titulo">
+                            <h3 class="titulo-card">LIZ</h3>
+                            <p class="descricao-card">Intenso Desodorante Colônia 100ml</p>
+                        </div>
+                        <div class="container__card-rating">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating.svg" alt="">
+                            <img src="./img/carrossel/star-rating-vazia.svg">
+                        </div>
+                        <div class="container__card-preco">
+                            <div class="container__precos">
+                                <h3 class="titulo-promocao"></h3>
+                                <h3 class="titulo-preco">R$ 498,90</h3>
+                            </div>
+                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                        </div>
+                        <div class="container__card-botao">
+                            <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
+                            <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
 
     <footer class="rodape">
         <footer>
@@ -421,27 +707,33 @@
             </div>
 
             <div class="footer__divisao">
-                <div class="footer__email">
-
-                    <h3 class="footer__texto-cadastro">Fique por dentro das novidades e cadastre-se para receber novas informações por email!</h3>
-                    <input type="email" placeholder="Cadastre seu e-mail" class="contato__email">   
-                </div>
-    
-                <div class="footer__contato">
-                    <h3 class="footer__contato-titulo">Fale Conosco</h3>
-                    <span class="footer__contato-texto"><i class="fa-solid fa-phone"></i>+99 99 9 9999-9999</span>
-                    <span class="footer__contato-texto"><i class="fa-solid fa-envelope"></i>meuemail@meudominio.com.br</span>
-                </div>
 
                 <div class="footer__contato">
                     <h3 class="footer__contato-titulo">Nossas Lojas</h3>
-                    <span class="footer__contato-texto"><i class="fa-solid fa-location-dot"></i>Av. Luiz Tarquínio Pontes, 938 - Jardim Aeroporto, Lauro de Freitas - BA</span>
+                    <span class="footer__contato-texto"><i class="fa-solid fa-location-dot"></i>Av. Luiz Tarquínio
+                        Pontes, 938 - Jardim Aeroporto, Lauro de Freitas - BA</span>
 
                 </div>
+
+                <div class="footer__email">
+                    <h3 class="footer__texto-cadastro">Fique por dentro das novidades e cadastre-se para receber novas
+                        informações por email!</h3>
+                    <input type="email" name="email" id="email" placeholder="Cadastre seu e-mail" class="contato__email" minlength="4" required>
+                    <span class="mensagem__erro" style="color: white"></span>
+                </div>
+
+                <div class="footer__contato">
+                    <h3 class="footer__contato-titulo">Fale Conosco</h3>
+                    <span class="footer__contato-texto"><i class="fa-solid fa-phone"></i>+99 99 9 9999-9999</span>
+                    <span class="footer__contato-texto"><i
+                            class="fa-solid fa-envelope"></i>meuemail@meudominio.com.br</span>
+                </div>
+
             </div>
 
             <div class="footerContainer">
-                <p class="footer__texto">Redes Sociais<p>
+                <p class="footer__texto">Redes Sociais
+                <p>
                 <div class="socialIcons">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-instagram"></i></a>
@@ -451,16 +743,17 @@
                 </div>
             </div>
             <div class="footerBottom">
-                <p>Copyright &copy;2024; Desenvolvido por <span class="designer"><br>Luciano Silva</span></p>
+                <p>Copyright &copy;2024; Desenvolvido por <span class="designer"><br><a href="#"
+                            id="faixaPromocao">Luciano Silva</a></span></p>
             </div>
 
         </footer>
-    
+
     </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="./index.js"></script>
+    <script src="./script.js" type="module"></script>
 
 </body>
 

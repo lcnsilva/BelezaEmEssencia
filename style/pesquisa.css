@@ -11,8 +11,8 @@
 .container__pesquisa-input{
     padding: 1em 2em;
     width: 100%;
-    border-radius: 18px;
-    border: 1px solid var(--cor-principal);
+    border-radius: 10px;
+    border: 2px solid var(--cor-principal);
 }
 
 .container__pesquisa{
@@ -32,6 +32,28 @@
 
 @media screen and (min-width: 1024px){
  .container__pesquisa-input{
-     width: 60%;
+     width: 70%;
  } 
+}
+
+@media screen and (min-width: 1280px){
+    .container__pesquisa-input{
+        width: 60%;
+    } 
+
+    .container__pesquisa{
+        padding: 1.5em 0;
+    }
+
+}
+
+@media screen and (min-width: 1920px){
+    .container__pesquisa-input{
+        width: 50%;
+    } 
+
+    .container__pesquisa{
+        padding: 1.5em 0;
+    }
+
 }

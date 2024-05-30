@@ -4,17 +4,23 @@
     box-sizing: border-box;
 }
 
-.container__header{
-    background-color: #490964;
+.cabeçalho{
     width: 100%;
-    padding: 0 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor-principal);
 }
 
-.container__header {
+.container__header{
+    background-color: var(--cor-principal);
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 10vh;
+    padding: 0 1em;
 }
 
 .container__header-menu {
@@ -22,7 +28,6 @@
     align-items: center;
     gap: 5px;
 }
-
 
 .menu__hamburguer{
     background-image: url(../img/header/menu-hamburguer.svg);
@@ -39,16 +44,6 @@
     position: absolute;
     width: 60vw;
     z-index: 1000;
-}
-
-.logo__header {
-    background: url("../img/header/Branco\ e\ Rosa\ Riscado\ Cosméticos\ Beleza\ Logótipo\ \(1\).svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 120px;
-    height: 54px;
-    display: inline-block;
 }
 
 .lista__item{
@@ -109,6 +104,20 @@
     height: 33px;
 }
 
+#comprasCarrinho{    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: var(--cor-fonte-principal);
+    background-color: red;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
 .container__menu-desktop {
     display: none;
 }
@@ -164,11 +173,132 @@
 }
 
 .container__logo {
+    user-select: none;
     padding: 0 0.5em;
 }
 
+.container__submenu {
+    width: 100%;
+    height: 5vh;
+    background-color: var(--cor-de-fundo);
+    color: var(--cor-principal);
+    display: none;
+}
 
+.container__promocao {
+    width: 100%;
+    height: 3vh;
+    background-color: var(--cor-de-fundo);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
 
+.promocao__header {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.promocao__header-texto {
+    font-weight: 500;
+    color: var(--cor-principal);
+}
+
+.container__modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+    background-color: var(--cor-de-fundo);
+    margin: 15% auto;
+    padding: 1.5em;
+    border-radius: 5px;
+    width: 90%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal__header{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+
+.modal__body{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+.modal__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    padding-bottom: 2em;
+}
+
+.modal__body-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-bottom: 1em;
+}
+
+.input__modal {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    border: 2px solid var(--cor-principal);
+    border-radius: 5px;
+    padding: 0.5em;
+}
+
+.modal__fechar-icon{
+    background-image: url("../img/header/modal/close.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: none;
+}
+
+.botao__modal {
+    background-color: var(--cor-principal);
+    color: var(--cor-fonte-principal);
+    font-size: 20px;
+    text-decoration: none;
+    border: 1px solid var(--cor-principal);
+    border-radius: 20px;
+    width: 100%;
+    gap: 10px;
+    padding: 0.5em 0;    
+}
+
+.modal__login {
+    font-size: 30px;
+    font-weight: 500;
+    padding-bottom: 1.5em;
+    color: var(--cor-principal);
+}
 
 
 @media screen and (min-width: 768px){
@@ -179,8 +309,17 @@
 }
 
 @media screen and (min-width: 1024px) {
+
     .container__header{
-        padding: 0 4em;
+        padding: 0;
+        width: 50%;
+    }
+
+    .container__submenu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
     }
 
     .container__menu-desktop {
@@ -196,7 +335,7 @@
     }
 
     .lista__link-desktop{
-        color: var(--cor-fonte-principal);
+        color: var(--cor-principal);
         text-decoration: none;
         font-size: 18px;
     }
@@ -217,7 +356,7 @@
         transform: scale(1.1);
         vertical-align: middle;
         padding: 0 1em;
-        border-bottom: 5px var(--cor-fonte-principal) solid;
+        border-bottom: 5px var(--cor-principal) solid;
     }
 
     .icone__login-desktop{
@@ -242,6 +381,7 @@
     }
     
     .container__compras {
+        position: relative;
         display: flex;
         align-items: center;
         gap: 0.5em;

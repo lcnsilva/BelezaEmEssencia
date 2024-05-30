@@ -123,10 +123,12 @@
 .footerBottom p{
     color: white;
 }
-.designer{
+.designer a{
     opacity: 0.7;
     letter-spacing: 1px;
     font-weight: 400;
+    text-decoration: none;
+    color: white;
 }
 
 .contato__email {
@@ -158,14 +160,16 @@
 
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1280px) {
     .footer__email{
         width: 50%;
+        border-right: 1px solid dimgray;
+        border-left: 1px solid dimgray;
+
     }
 
     .footer__contato{
         width: 50%;
-        border-left: 1px solid dimgray;
 
     }
 
