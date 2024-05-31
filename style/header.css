@@ -328,6 +328,14 @@
     gap: 1em;
 }
 
+.carrinho__vazio {
+    display: flex;
+    padding: 0.5em;
+    justify-content: space-between;
+    align-items: start;
+    font-size: 20px;
+}
+
 .dropdown-item:hover {
     background-color: #f1f1f1;
 }

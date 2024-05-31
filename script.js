@@ -11,23 +11,40 @@ var botaoMenu = document.getElementById('abrirMenu');
 var menu = document.getElementById('lista__menu');
 const iconeCompra = document.querySelector(".icone__compras");
 const textoCompra = document.querySelector(".icone__compras-texto");
+const botaoExcluirCompra = document.querySelectorAll(".dropdown-botao-limpar");
 
-iconeCompra.addEventListener("click", () => {
-  const dropdown = document.querySelector(".dropdown");
-  if(dropdown.style.display == 'none') {
-    dropdown.style.display = 'block';
-  } else { 
-    dropdown.style.display = 'none';
-  }
+
+botaoExcluirCompra.forEach((botao) => {
+  botao.addEventListener("click", (e) => {
+    const item = e.target.closest(".dropdown-item");
+    item.remove();
+  })
 })
 
-textoCompra.addEventListener("click", () => {
-  const dropdown = document.querySelector(".dropdown");
-  if(dropdown.style.display == 'none') {
-    dropdown.style.display = 'block';
-  } else { 
-    dropdown.style.display = 'none';
-  }
+iconeCompra.addEventListener("click", (event) => {
+  toggleDropdown();
+  const botaoExcluirCompra = document.querySelectorAll(".dropdown-botao-limpar");
+  botaoExcluirCompra.forEach((botao) => {
+    botao.addEventListener("click", (e) => {
+      const item = e.target.closest(".dropdown-item");
+      item.remove();
+      verificaCarrinho()
+    })
+  })
+})
+
+textoCompra.addEventListener("click", (event) => {
+  toggleDropdown();
+  const botaoExcluirCompra = document.querySelectorAll(".dropdown-botao-limpar");
+  botaoExcluirCompra.forEach((botao) => {
+    botao.addEventListener("click", (e) => {
+      const item = e.target.closest(".dropdown-item");
+      item.remove();
+      verificaCarrinho();
+      removerContadorCarrinho();
+
+    })
+  })
 })
 
 fecharLogin.addEventListener("click", (event) => {
@@ -99,6 +116,36 @@ function adicionarAoCarrinho() {
   contadorCarrinho.textContent = contadorAtual;
 }
 
+function toggleDropdown() {
+  const dropdown = document.querySelector(".dropdown");
+  if(dropdown.style.display == 'none') {
+    dropdown.style.display = 'block';
+  } else { 
+    dropdown.style.display = 'none';
+  }
+}
+
+function fecharDropdown() {
+  const dropdown = document.querySelector(".dropdown");
+  if(dropdown.style.display == 'block') {
+    dropdown.style.display = 'none';
+  }
+}
+
+function removerContadorCarrinho() {
+  const contadorCarrinho = document.getElementById("comprasCarrinho");
+  const menu = document.querySelector('#dropdownMenu');
+  const carrinhoVazio = menu.querySelector(".carrinho__vazio")
+  if(!carrinhoVazio){
+    const menu = document.querySelector('#dropdownMenu');
+    var contadorAtual = menu.children.length;
+    contadorCarrinho.textContent = contadorAtual;
+  } else{
+    contadorCarrinho.textContent = 0;
+  }
+  
+}
+
 function favoritarProduto() {
   const favorito = document.getElementById("iconeFavorito");
   var isPreenchido = favorito.classList.contains('icone__card-favorito-preenchido');
@@ -115,7 +162,7 @@ botoesComprar.forEach((e) => {
   e.addEventListener("click", (event) => {
     adicionarAoCarrinho();
     event.preventDefault();
-    console.log("carrinho funcionando");
+    removeMensagem();
   })
 })
 
@@ -183,11 +230,33 @@ function verificaCampo(campo) {
   }
 }
 
+function verificaCarrinho() {
+  const menu = document.querySelector('#dropdownMenu');
+  const novoItem = document.createElement('li');
+  novoItem.className = 'carrinho__vazio';
+  novoItem.innerHTML = `
+      <div class="carrinho__vazio">
+          O carrinho está vazio
+      </div>
+
+      `
+  if(menu.children.length === 0){
+    menu.appendChild(novoItem);
+  }
+}
+
+function removeMensagem() {
+  const menu = document.querySelector('#dropdownMenu');
+  const carrinhoVazio = document.querySelector(".carrinho__vazio");
+  if(carrinhoVazio){
+    menu.removeChild(carrinhoVazio);
+  }
+}
+
 botoesComprar.forEach((botoes) => {
   botoes.addEventListener("click", () => {
     const card = botoes.closest('.container__card');
     const imagemProduto = card.querySelector(".container__card-imagem img").src;
-    console.log(imagemProduto);
     const tituloProduto = card.querySelector('.titulo-card').textContent;
     const descricaoProduto = card.querySelector('.descricao-card').textContent;
     const precoProduto = card.querySelector('.titulo-preco').textContent;
@@ -199,7 +268,6 @@ botoesComprar.forEach((botoes) => {
       "preco" : precoProduto,
       "url" : caminhoRelativo
     }
-    console.log(produto);
     const menu = document.querySelector('#dropdownMenu');
     const novoItem = document.createElement('li');
     novoItem.className = 'dropdown-item';
@@ -212,48 +280,10 @@ botoesComprar.forEach((botoes) => {
             <span class="descricao-item">${produto.descricao}</span>
         </div>
         <span class="preco-item">${produto.preco}</span>
+        <button class="dropdown-botao-limpar"><img src="./img/header/modal/close.svg" width="20px" height="20px"></button>
+
     `
     menu.appendChild(novoItem);
-
-    console.log(novoItem)
+    fecharDropdown();
   })
 })
-
-
-
-// USAR LOCAL STORAGE PARA SALVAR INTERAÇÕES ENTRE FAVORITOS E ADICIONAR AO CARRINHO NA PAGIMA HOME OU NA PAGINA TDS OS PRODUTOS, PARA QUE NÃO RESETE AO TROCAR DE PÁGINA.
-//CRIAR UM OBJETO AO ADICIONAR NO CARRINHO, SALVA NO LOCAL STORAGE COMO JSON, E AO MOSTRAR O CARRINHO PUXA DO LOCALSTORAGE E CRIA UM INNERHTML
-//FAZER FUNÇÃO PARA CRIAR DESCONTO NOS PRODUTOS DE FORMA AUTOMATICA, ONDE TEM O PREÇO ORIGINAL - PREÇO DESCONTADO E CALCULA A % DO DESCONTO AUTOMATICAMENTE 
-//CRIAR BOTÃO NO FINAL DA PÁGINA(PARA DEMONSTRAR) QUE ATIVE/DESATIVE UMA FAIXA EM CIMA DO HEADER COMO SE FOSSE DE PROMOÇÃO/CUPOM VVVVVVVVVVVVVVVVVVVVVVVVVVVVV FEITO
-
-
-
-//FAZER MEDIA QUERY DO MODAL  VVVVVVVVVVVVVVVVVVVVVVVVVVVVV FEITO
-
-//VER COMO DAR FILL NO SVG PARA MUDAR VVVVVVVVVVVVVVVVVVVVVVVVVVVVV FEITO
-
-//fazer span para aparecer o numero de compras no carrinho VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV FEITO
-//ajeitar os for do header
-//trocar icones com span por img
-
-//fazer segundo menu com as opções e alinhar o primeiro menu width 60% VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV FEITO
-
-//testar banner com witdh 60% VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV FEITO
-
-//AJEITAR TAMANHO DOS CARD EM FULL HD++ VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV FEITO
-//ajeitar padding dos card para deixar mais próximos, reduzir tamanho e deixar mais esticado
-
-//footer = trocar de lugar o fale conosco e colocar a newsletter no meio VVVVVVVVVVVVVVVVVVVVVVVVVVVVV FEITO
-//fazer menu de navegação no footer
-
-
-//criar item para aparecer no carrinho com innerHTML e modal
-//DEPOIS VER COMO QUE FAZ PARA MULTIPLICAR AS ESTRELAS DE RATING
-//PEGAR O INPUT DA BARRA DE PESQUISA, E SE FOR DE UMA DAS LINHAS DISPONÍVEIS NO SITE REDIRECIONAR PARA A POSIÇÃO OU UMA PÁGINA NOVA QUE MOSTRE SOBRE A LINHA ESCOLHIDA
-
-//FAZER VALIDAÇÃO DE FORMULÁRIOS NO LOGIN DO MODAL VVVVVVVVVVVVVVVVVVVVVVVVVVVVV FEITO
-//TERMINAR MODAL DE LOGIN VVVVVVVVVVVVVVVVVVVVVVVVVVVVV FEITO
-//FAZER PAGINA PARA LOGAR INICIALMENTE VVVVVVVVVVVVVVVVVVVVVVVVVVVVV FEITO
-//FAZER DIV DE MODAL COM DISPLAY NONE DE CADASTRO, AI QUANDO CLICAR EM CADASTRO TROCA AS DIV
-
-
