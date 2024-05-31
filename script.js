@@ -9,6 +9,26 @@ const botaoLoginIcone = document.querySelector("#botaoLoginIcone");
 const fecharLogin = document.querySelector("#fecharLogin");
 var botaoMenu = document.getElementById('abrirMenu');
 var menu = document.getElementById('lista__menu');
+const iconeCompra = document.querySelector(".icone__compras");
+const textoCompra = document.querySelector(".icone__compras-texto");
+
+iconeCompra.addEventListener("click", () => {
+  const dropdown = document.querySelector(".dropdown");
+  if(dropdown.style.display == 'none') {
+    dropdown.style.display = 'block';
+  } else { 
+    dropdown.style.display = 'none';
+  }
+})
+
+textoCompra.addEventListener("click", () => {
+  const dropdown = document.querySelector(".dropdown");
+  if(dropdown.style.display == 'none') {
+    dropdown.style.display = 'block';
+  } else { 
+    dropdown.style.display = 'none';
+  }
+})
 
 fecharLogin.addEventListener("click", (event) => {
   event.preventDefault();
@@ -163,10 +183,52 @@ function verificaCampo(campo) {
   }
 }
 
+botoesComprar.forEach((botoes) => {
+  botoes.addEventListener("click", () => {
+    const card = botoes.closest('.container__card');
+    const imagemProduto = card.querySelector(".container__card-imagem img").src;
+    console.log(imagemProduto);
+    const tituloProduto = card.querySelector('.titulo-card').textContent;
+    const descricaoProduto = card.querySelector('.descricao-card').textContent;
+    const precoProduto = card.querySelector('.titulo-preco').textContent;
+    const dominio = window.location.origin;
+    const caminhoRelativo = imagemProduto.substring(dominio.length);
+    const produto = {
+      "titulo" : tituloProduto,
+      "descricao" : descricaoProduto,
+      "preco" : precoProduto,
+      "url" : caminhoRelativo
+    }
+    console.log(produto);
+    const menu = document.querySelector('#dropdownMenu');
+    const novoItem = document.createElement('li');
+    novoItem.className = 'dropdown-item';
+    novoItem.innerHTML = `
+        <div>
+            <img class="dropdown-item-icon" src="${produto.url}" alt="">
+        </div>
+        <div class="dropdown-item-texto">
+            <span class="titulo-item">${produto.titulo}</span>
+            <span class="descricao-item">${produto.descricao}</span>
+        </div>
+        <span class="preco-item">${produto.preco}</span>
+    `
+    menu.appendChild(novoItem);
+
+    console.log(novoItem)
+  })
+})
+
+
+
 // USAR LOCAL STORAGE PARA SALVAR INTERAÇÕES ENTRE FAVORITOS E ADICIONAR AO CARRINHO NA PAGIMA HOME OU NA PAGINA TDS OS PRODUTOS, PARA QUE NÃO RESETE AO TROCAR DE PÁGINA.
 //CRIAR UM OBJETO AO ADICIONAR NO CARRINHO, SALVA NO LOCAL STORAGE COMO JSON, E AO MOSTRAR O CARRINHO PUXA DO LOCALSTORAGE E CRIA UM INNERHTML
 //FAZER FUNÇÃO PARA CRIAR DESCONTO NOS PRODUTOS DE FORMA AUTOMATICA, ONDE TEM O PREÇO ORIGINAL - PREÇO DESCONTADO E CALCULA A % DO DESCONTO AUTOMATICAMENTE 
 //CRIAR BOTÃO NO FINAL DA PÁGINA(PARA DEMONSTRAR) QUE ATIVE/DESATIVE UMA FAIXA EM CIMA DO HEADER COMO SE FOSSE DE PROMOÇÃO/CUPOM VVVVVVVVVVVVVVVVVVVVVVVVVVVVV FEITO
+
+
+
+//FAZER MEDIA QUERY DO MODAL  VVVVVVVVVVVVVVVVVVVVVVVVVVVVV FEITO
 
 //VER COMO DAR FILL NO SVG PARA MUDAR VVVVVVVVVVVVVVVVVVVVVVVVVVVVV FEITO
 

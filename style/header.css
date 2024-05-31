@@ -300,26 +300,166 @@
     color: var(--cor-principal);
 }
 
+.dropdown {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 2000;
+    width: 100vw;
+}
+
+.dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-item{
+    display: flex;
+    padding: 1em 1em;
+    justify-content: space-between;
+    min-height: 8   0px;
+    align-items: start;
+    gap: 1em;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+
+.dropdown-item-icon {
+    width: 80px;
+    height: 70px;
+    border: 2px solid var(--cor-principal);
+    border-radius: 15px;
+}
+
+.titulo-item {
+    font-size: 22px;
+}
+
+.descricao-item {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+.dropdown-item-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0.5em;    
+    width: 100%;
+    height: 80px;
+}
+
+.preco-item {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--cor-fonte-secundaria);
+    white-space: nowrap;
+    padding: 1em 0;
+}
+
+.dropdown-botao-limpar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    text-decoration: none;
+    border: 2px solid var(--cor-fonte-secundaria);
+    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    gap: 10px;
+    padding: 0.5em 0;    
+}
+
+.dropdown-botao-limpar:hover {
+    background-color: rgba(73, 9, 100, 0.95);
+}
+
+.dropdown-botao-pagar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-principal);
+    color: var(--cor-fonte-principal);
+    font-size: 20px;
+    text-decoration: none;
+    border: 1px solid var(--cor-fonte-principal);
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+    padding: 0.5em 0;    
+}
+
+.dropdown-botao-pagar:hover {
+    background-color: rgba(73, 9, 100, 0.95);
+}
+
+.dropdown-botao-pagar:active {
+    background-color: rgba(73, 9, 100, 0.8);
+}
+
 
 @media screen and (min-width: 768px){
     #lista__menu{
         width: auto;
     }
     
+    .modal {
+        padding: 3em;
+        width: 70%;
+        height: 60%;
+    }
+
+    .dropdown {
+        top: 8vh;
+        right: 0;
+        width: 60vw;
+    }
+
+    .preco-item {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--cor-fonte-secundaria);
+        white-space: nowrap;
+        padding: 1em 0;
+    }
+    
 }
 
 @media screen and (min-width: 1024px) {
 
+    .modal {
+        padding: 3em;
+        width: 60%;
+        height: 60%;
+    }
+
+    .dropdown {
+        top: 4vh;
+        right: 0;
+        width: 40vw;
+    }
+
     .container__header{
         padding: 0;
-        width: 50%;
+        width: 70%;
     }
 
     .container__submenu {
         display: flex;
         justify-content: center;
         align-items: center;
-    
     }
 
     .container__menu-desktop {
@@ -386,6 +526,7 @@
         align-items: center;
         gap: 0.5em;
     }
+
     
 
     
@@ -403,4 +544,64 @@
     .icone__compras-texto{
         display: inline-block;
     }
+
+    .dropdown {
+        top: 6vh;
+        right: 0;
+        width: 40vw;
+    }
+
+    
 }
+
+@media screen and (min-width:1440px){
+    .modal {
+        padding: 3em;
+        width: 40%;
+        height: 60%;
+        position: fixed;
+        top: -10%;
+        left: 30%;
+    }
+
+    .dropdown {
+        top: 5vh;
+        right: 0;
+        width: 36vw;
+    }
+}
+
+@media screen and (min-width:1920px){
+    .container__header{
+        width: 50%;
+    }
+    
+    .dropdown {
+        top: 5vh;
+        right: 0;
+        width: 27vw;
+    }
+}
+
+@media screen and (min-width:2560px){
+    .modal {
+        overflow: hidden;
+        padding: 3em;
+        width: 30%;
+        height: 55%;
+        position: fixed;
+        top: -25%;
+        left: 35%;
+    }
+
+    .dropdown {
+        top: 6vh;
+        right: 0;
+        width: 20vw;
+    }
+
+    .preco-item {
+        padding: 1.5em 0;
+    }
+}
+
