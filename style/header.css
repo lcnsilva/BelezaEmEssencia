@@ -96,6 +96,7 @@
 }
 
 .icone__compras{
+    position: relative;
     background-image: url(../img/header/compras.svg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -106,8 +107,8 @@
 
 #comprasCarrinho{    
     position: absolute;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     color: var(--cor-fonte-principal);
     background-color: red;
     border-radius: 50%;
@@ -291,6 +292,14 @@
     width: 100%;
     gap: 10px;
     padding: 0.5em 0;    
+}
+
+.botao__modal:hover {
+    background-color: rgba(73, 9, 100, 0.95);
+}
+
+.botao__modal:active {
+    background-color: rgba(73, 9, 100, 0.8);
 }
 
 .modal__login {

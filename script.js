@@ -12,6 +12,14 @@ var menu = document.getElementById('lista__menu');
 const iconeCompra = document.querySelector(".icone__compras");
 const textoCompra = document.querySelector(".icone__compras-texto");
 const botaoExcluirCompra = document.querySelectorAll(".dropdown-botao-limpar");
+const containerModal = document.querySelector(".container__modal");
+
+containerModal.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (event.target === containerModal) {
+    abrirModal();
+  }
+})
 
 
 botaoExcluirCompra.forEach((botao) => {
@@ -28,7 +36,8 @@ iconeCompra.addEventListener("click", (event) => {
     botao.addEventListener("click", (e) => {
       const item = e.target.closest(".dropdown-item");
       item.remove();
-      verificaCarrinho()
+      verificaCarrinho();
+      removerContadorCarrinho();
     })
   })
 })
@@ -42,7 +51,6 @@ textoCompra.addEventListener("click", (event) => {
       item.remove();
       verificaCarrinho();
       removerContadorCarrinho();
-
     })
   })
 })
