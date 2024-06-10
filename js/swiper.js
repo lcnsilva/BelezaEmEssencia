@@ -5,7 +5,7 @@ const swiper = new Swiper('#swiper', {
     slidesPerView: 1.4,
     
     autoplay: {
-      delay: 4000,
+      delay: 40000000,
       disableOnInteraction: false
     },
 
