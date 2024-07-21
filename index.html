@@ -393,16 +393,16 @@
         <!-- Slider main container -->
         <div class="swiper" id="swiper">
             <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper" id="wrapper-slide-lily">
                 <!-- Slides -->
                 <div class="swiper-slide">
                     <div class="container__card">
                         <div class="container__card-imagem">
-                            <img src="./img/carrossel/lily/lily1.webp" alt="">
+                            <img src="${produto.imgsource}" alt="" id="lily-img">
                         </div>
                         <div class="container__card-titulo">
-                            <h3 class="titulo-card">LIZ</h3>
-                            <p class="descricao-card">Flora Desodorante Colônia 100ml</p>
+                            <h3 class="titulo-card">${produto.nome}</h3>
+                            <p class="descricao-card">${produto.descricao}</p>
                         </div>
                         <div class="container__card-rating">
                             <img src="./img/carrossel/star-rating.svg" alt="">
@@ -414,9 +414,9 @@
                         <div class="container__card-preco">
                             <div class="container__precos">
                                 <h3 class="titulo-promocao"></h3>
-                                <h3 class="titulo-preco">R$ 498,90</h3>
+                                <h3 class="titulo-preco">R$ ${produto.preco}</h3>
                             </div>
-                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                            <h4 class="subtitulo-preco">10x de ${(produto.preco / 10)}</h4>
                         </div>
                         <div class="container__card-botao">
                             <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
@@ -424,14 +424,15 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide">
                     <div class="container__card">
                         <div class="container__card-imagem">
-                            <img src="./img/carrossel/lily/lily2.webp" alt="">
+                            <img src="${produto.imgsource}" alt="" id="lily-img">
                         </div>
                         <div class="container__card-titulo">
-                            <h3 class="titulo-card">LIZ</h3>
-                            <p class="descricao-card">Sublime Desodorante Colônia 100ml</p>
+                            <h3 class="titulo-card">${produto.nome}</h3>
+                            <p class="descricao-card">${produto.descricao}</p>
                         </div>
                         <div class="container__card-rating">
                             <img src="./img/carrossel/star-rating.svg" alt="">
@@ -443,9 +444,9 @@
                         <div class="container__card-preco">
                             <div class="container__precos">
                                 <h3 class="titulo-promocao"></h3>
-                                <h3 class="titulo-preco">R$ 498,90</h3>
+                                <h3 class="titulo-preco">R$ ${produto.preco}</h3>
                             </div>
-                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                            <h4 class="subtitulo-preco">10x de ${(produto.preco / 10)}</h4>
                         </div>
                         <div class="container__card-botao">
                             <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
@@ -453,14 +454,15 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide">
                     <div class="container__card">
                         <div class="container__card-imagem">
-                            <img src="./img/carrossel/lily/lily3.webp" alt="">
+                            <img src="${produto.imgsource}" alt="" id="lily-img">
                         </div>
                         <div class="container__card-titulo">
-                            <h3 class="titulo-card">LIZ</h3>
-                            <p class="descricao-card">Desodorante Colônia 100ml</p>
+                            <h3 class="titulo-card">${produto.nome}</h3>
+                            <p class="descricao-card">${produto.descricao}</p>
                         </div>
                         <div class="container__card-rating">
                             <img src="./img/carrossel/star-rating.svg" alt="">
@@ -472,9 +474,9 @@
                         <div class="container__card-preco">
                             <div class="container__precos">
                                 <h3 class="titulo-promocao"></h3>
-                                <h3 class="titulo-preco">R$ 498,90</h3>
+                                <h3 class="titulo-preco">R$ ${produto.preco}</h3>
                             </div>
-                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                            <h4 class="subtitulo-preco">10x de ${(produto.preco / 10)}</h4>
                         </div>
                         <div class="container__card-botao">
                             <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
@@ -482,14 +484,15 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide">
                     <div class="container__card">
                         <div class="container__card-imagem">
-                            <img src="./img/carrossel/lily/lily4.webp" alt="">
+                            <img src="${produto.imgsource}" alt="" id="lily-img">
                         </div>
                         <div class="container__card-titulo">
-                            <h3 class="titulo-card">LIZ</h3>
-                            <p class="descricao-card">Intenso Desodorante Colônia 100ml</p>
+                            <h3 class="titulo-card">${produto.nome}</h3>
+                            <p class="descricao-card">${produto.descricao}</p>
                         </div>
                         <div class="container__card-rating">
                             <img src="./img/carrossel/star-rating.svg" alt="">
@@ -501,9 +504,9 @@
                         <div class="container__card-preco">
                             <div class="container__precos">
                                 <h3 class="titulo-promocao"></h3>
-                                <h3 class="titulo-preco">R$ 498,90</h3>
+                                <h3 class="titulo-preco">R$ ${produto.preco}</h3>
                             </div>
-                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                            <h4 class="subtitulo-preco">10x de ${(produto.preco / 10)}</h4>
                         </div>
                         <div class="container__card-botao">
                             <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
@@ -511,14 +514,15 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide">
                     <div class="container__card">
                         <div class="container__card-imagem">
-                            <img src="./img/carrossel/lily/lily5.webp" alt="">
+                            <img src="${produto.imgsource}" alt="" id="lily-img">
                         </div>
                         <div class="container__card-titulo">
-                            <h3 class="titulo-card">LIZ</h3>
-                            <p class="descricao-card">Intenso Desodorante Colônia 100ml</p>
+                            <h3 class="titulo-card">${produto.nome}</h3>
+                            <p class="descricao-card">${produto.descricao}</p>
                         </div>
                         <div class="container__card-rating">
                             <img src="./img/carrossel/star-rating.svg" alt="">
@@ -530,9 +534,9 @@
                         <div class="container__card-preco">
                             <div class="container__precos">
                                 <h3 class="titulo-promocao"></h3>
-                                <h3 class="titulo-preco">R$ 498,90</h3>
+                                <h3 class="titulo-preco">R$ ${produto.preco}</h3>
                             </div>
-                            <h4 class="subtitulo-preco">10x de 49,89</h4>
+                            <h4 class="subtitulo-preco">10x de ${(produto.preco / 10)}</h4>
                         </div>
                         <div class="container__card-botao">
                             <a href="" class="botao__favorito"><i class="icone__card-favorito"></i></a>
@@ -540,6 +544,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
 
         </div>

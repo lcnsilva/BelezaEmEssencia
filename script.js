@@ -300,12 +300,12 @@ botoesComprar.forEach((botoes) => {
 
 window.addEventListener('load', () => {
   fetchDadosLiz();
+  fetchDadosLily();
 });
 
 async function fetchDadosLiz () {
   try {
-    const menu = document.querySelector('#wrapper-slide-liz');
-    const apiurl = 'https://beleza-em-essencia-api.vercel.app/produtos';
+    const apiurl = 'https://beleza-em-essencia-api.vercel.app/produtosLiz';
     const dados = await fetch(apiurl)
       .then(response => response.json())
       .catch(error => console.log(error));
@@ -316,6 +316,37 @@ async function fetchDadosLiz () {
       if (index < swiperSlide.length) {
           let slide = swiperSlide[index];
           let imgsource = slide.querySelector('#liz-img');
+          let produtoTitulo = slide.querySelector('.titulo-card');
+          let produtoDescricao = slide.querySelector('.descricao-card');
+          let produtoPreco = slide.querySelector('.titulo-preco');
+          let produtoSubPreco = slide.querySelector('.subtitulo-preco');
+          
+          imgsource.src = `${produto.imgsource}`;
+          produtoTitulo.textContent = `${produto.nome}`;
+          produtoDescricao.textContent = `${produto.descricao}`;
+          produtoPreco.textContent = `R$ ${produto.preco}`;
+          produtoSubPreco.textContent = `10x de R$ ${(produto.preco/10)}`;
+      }
+    });
+  }
+  catch (error) {
+    console.log(error)
+  }
+}
+
+async function fetchDadosLily () {
+  try {
+    const apiurl = 'https://beleza-em-essencia-api.vercel.app/produtosLily';
+    const dados = await fetch(apiurl)
+      .then(response => response.json())
+      .catch(error => console.log(error));
+    console.log(dados);
+    dados.forEach((produto, index) => {
+      let wrapper = document.querySelector('#wrapper-slide-lily');
+      let swiperSlide = wrapper.querySelectorAll('.swiper-slide');
+      if (index < swiperSlide.length) {
+          let slide = swiperSlide[index];
+          let imgsource = slide.querySelector('#lily-img');
           let produtoTitulo = slide.querySelector('.titulo-card');
           let produtoDescricao = slide.querySelector('.descricao-card');
           let produtoPreco = slide.querySelector('.titulo-preco');
