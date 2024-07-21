@@ -14,6 +14,8 @@ const textoCompra = document.querySelector(".icone__compras-texto");
 const botaoExcluirCompra = document.querySelectorAll(".dropdown-botao-limpar");
 const containerModal = document.querySelector(".container__modal");
 
+
+
 containerModal.addEventListener("click", (event) => {
   event.preventDefault();
   if (event.target === containerModal) {
@@ -296,52 +298,38 @@ botoesComprar.forEach((botoes) => {
   })
 })
 
-
-window.addEventListener('load', async () => {
-  try{
-    const menu = document.querySelector('.wrapper-teste');
-    const apiurl = 'http://localhost:3000/produtos';
-    menu.innerHTML = '';
-    const dados = await fetch(apiurl)
-        .then(response => response.json())
-        .catch(error => console.log(error));
-    console.log(dados);
-    dados.forEach((produto) => {
-        let novoItem = document.createElement("div");
-        novoItem.className = 'container__cardteste'
-        novoItem.innerHTML = 
-          `
-            <div class="container__card-imagem">
-                <img src="./img/carrossel${produto.imgsource}" alt="">
-            </div>
-            <div class="container__card-titulo">
-                <h3 class="titulo-card">${produto.nome}</h3>
-                <p class="descricao-card">${produto.descricao}</p>
-            </div>
-            <div class="container__card-rating">
-                <img src="./img/carrossel/star-rating.svg" alt="">
-                <img src="./img/carrossel/star-rating.svg" alt="">
-                <img src="./img/carrossel/star-rating.svg" alt="">
-                <img src="./img/carrossel/star-rating.svg" alt="">
-                <img src="./img/carrossel/star-rating-vazia.svg">
-            </div>
-            <div class="container__card-preco">
-                <div class="container__precos">
-                    <h3 class="titulo-promocao"></h3>
-                    <h3 class="titulo-preco">R$ ${produto.preco}</h3>
-                </div>
-                <h4 class="subtitulo-preco">10x de 49,89</h4>
-            </div>
-            <div class="container__card-botao">
-                <a href="" class="botao__favorito"><i class="icone__card-favorito"
-                        id="iconeFavorito"></i></a>
-                <button class="botao__carrinho"><i class="botao__icone-carrinho"></i>Comprar</button>
-            </div>
-        `
-        menu.appendChild(novoItem);
-    })
-}
-catch (error) {
-    console.log(error)
-}
+window.addEventListener('load', () => {
+  fetchDadosLiz();
 });
+
+async function fetchDadosLiz () {
+  try {
+    const menu = document.querySelector('#wrapper-slide-liz');
+    const apiurl = 'https://beleza-em-essencia-api.vercel.app/produtos';
+    const dados = await fetch(apiurl)
+      .then(response => response.json())
+      .catch(error => console.log(error));
+    console.log(dados);
+    dados.forEach((produto, index) => {
+      let wrapper = document.querySelector('#wrapper-slide-liz');
+      let swiperSlide = wrapper.querySelectorAll('.swiper-slide');
+      if (index < swiperSlide.length) {
+          let slide = swiperSlide[index];
+          let imgsource = slide.querySelector('#liz-img');
+          let produtoTitulo = slide.querySelector('.titulo-card');
+          let produtoDescricao = slide.querySelector('.descricao-card');
+          let produtoPreco = slide.querySelector('.titulo-preco');
+          let produtoSubPreco = slide.querySelector('.subtitulo-preco');
+          
+          imgsource.src = `${produto.imgsource}`;
+          produtoTitulo.textContent = `${produto.nome}`;
+          produtoDescricao.textContent = `${produto.descricao}`;
+          produtoPreco.textContent = `R$ ${produto.preco}`;
+          produtoSubPreco.textContent = `10x de R$ ${(produto.preco/10)}`;
+      }
+    });
+  }
+  catch (error) {
+    console.log(error)
+  }
+}
