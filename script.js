@@ -270,13 +270,11 @@ botoesComprar.forEach((botoes) => {
     const tituloProduto = card.querySelector('.titulo-card').textContent;
     const descricaoProduto = card.querySelector('.descricao-card').textContent;
     const precoProduto = card.querySelector('.titulo-preco').textContent;
-    const dominio = window.location.origin;
-    const caminhoRelativo = imagemProduto.substring(dominio.length);
     const produto = {
       "titulo" : tituloProduto,
       "descricao" : descricaoProduto,
       "preco" : precoProduto,
-      "url" : caminhoRelativo
+      "url" : imagemProduto
     }
     const menu = document.querySelector('#dropdownMenu');
     const novoItem = document.createElement('li');
@@ -301,15 +299,15 @@ botoesComprar.forEach((botoes) => {
 window.addEventListener('load', () => {
   fetchDadosLiz();
   fetchDadosLily();
+  fetchDadosCoffee();
 });
 
 async function fetchDadosLiz () {
   try {
-    const apiurl = 'https://beleza-em-essencia-api.vercel.app/produtosLiz';
+    const apiurl = 'https://beleza-em-essencia-api.vercel.app/produtos/linha/Liz';
     const dados = await fetch(apiurl)
       .then(response => response.json())
       .catch(error => console.log(error));
-    console.log(dados);
     dados.forEach((produto, index) => {
       let wrapper = document.querySelector('#wrapper-slide-liz');
       let swiperSlide = wrapper.querySelectorAll('.swiper-slide');
@@ -324,8 +322,8 @@ async function fetchDadosLiz () {
           imgsource.src = `${produto.imgsource}`;
           produtoTitulo.textContent = `${produto.nome}`;
           produtoDescricao.textContent = `${produto.descricao}`;
-          produtoPreco.textContent = `R$ ${produto.preco}`;
-          produtoSubPreco.textContent = `10x de R$ ${(produto.preco/10)}`;
+          produtoPreco.textContent = `R$ ${produto.preco.toFixed(2)}`;
+          produtoSubPreco.textContent = `10x de R$ ${(produto.preco/10).toFixed(2)}`;
       }
     });
   }
@@ -336,11 +334,10 @@ async function fetchDadosLiz () {
 
 async function fetchDadosLily () {
   try {
-    const apiurl = 'https://beleza-em-essencia-api.vercel.app/produtosLily';
+    const apiurl = 'https://beleza-em-essencia-api.vercel.app/produtos/linha/Lily';
     const dados = await fetch(apiurl)
       .then(response => response.json())
       .catch(error => console.log(error));
-    console.log(dados);
     dados.forEach((produto, index) => {
       let wrapper = document.querySelector('#wrapper-slide-lily');
       let swiperSlide = wrapper.querySelectorAll('.swiper-slide');
@@ -355,8 +352,38 @@ async function fetchDadosLily () {
           imgsource.src = `${produto.imgsource}`;
           produtoTitulo.textContent = `${produto.nome}`;
           produtoDescricao.textContent = `${produto.descricao}`;
-          produtoPreco.textContent = `R$ ${produto.preco}`;
-          produtoSubPreco.textContent = `10x de R$ ${(produto.preco/10)}`;
+          produtoPreco.textContent = `R$ ${produto.preco.toFixed(2)}`;
+          produtoSubPreco.textContent = `10x de R$ ${(produto.preco/10).toFixed(2)}`;
+      }
+    });
+  }
+  catch (error) {
+    console.log(error)
+  }
+}
+
+async function fetchDadosCoffee() {
+  try {
+    const apiurl = 'https://beleza-em-essencia-api.vercel.app/produtos/linha/Coffee';
+    const dados = await fetch(apiurl)
+      .then(response => response.json())
+      .catch(error => console.log(error));
+    dados.forEach((produto, index) => {
+      let wrapper = document.querySelector('#wrapper-slide-coffee');
+      let swiperSlide = wrapper.querySelectorAll('.swiper-slide');
+      if (index < swiperSlide.length) {
+          let slide = swiperSlide[index];
+          let imgsource = slide.querySelector('#coffee-img');
+          let produtoTitulo = slide.querySelector('.titulo-card');
+          let produtoDescricao = slide.querySelector('.descricao-card');
+          let produtoPreco = slide.querySelector('.titulo-preco');
+          let produtoSubPreco = slide.querySelector('.subtitulo-preco');
+          
+          imgsource.src = `${produto.imgsource}`;
+          produtoTitulo.textContent = `${produto.nome}`;
+          produtoDescricao.textContent = `${produto.descricao}`;
+          produtoPreco.textContent = `R$ ${produto.preco.toFixed(2)}`;
+          produtoSubPreco.textContent = `10x de R$ ${(produto.preco/10).toFixed(2)}`;
       }
     });
   }
