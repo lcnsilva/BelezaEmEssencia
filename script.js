@@ -311,7 +311,7 @@ async function criarProdutos(linha) {
   }))
 
   try {
-    const apiurl = `http://localhost:3000/produtos/linha/${linha}`;
+    const apiurl = `https://beleza-em-essencia-api.vercel.app/produtos/linha/${linha}`;
     const response = await fetch(apiurl);
 
     if (!response.ok) {
