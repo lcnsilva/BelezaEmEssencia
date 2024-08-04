@@ -297,97 +297,59 @@ botoesComprar.forEach((botoes) => {
 })
 
 window.addEventListener('load', () => {
-  fetchDadosLiz();
-  fetchDadosLily();
-  fetchDadosCoffee();
+  criarProdutos('liz');
+  criarProdutos('lily');
+  criarProdutos('coffee');
 });
 
-async function fetchDadosLiz () {
+async function criarProdutos(linha) {
+  const fallbackData = Array.from({length: 5}, (_, index) => ({
+      imgsource: 'imgUrl',
+      nome: 'Produto',
+      descricao: 'Descrição do produto.',
+      preco: 0.00
+  }))
+
   try {
-    const apiurl = 'https://beleza-em-essencia-api.vercel.app/produtos/linha/Liz';
-    const dados = await fetch(apiurl)
-      .then(response => response.json())
-      .catch(error => console.log(error));
-    dados.forEach((produto, index) => {
-      let wrapper = document.querySelector('#wrapper-slide-liz');
-      let swiperSlide = wrapper.querySelectorAll('.swiper-slide');
-      if (index < swiperSlide.length) {
-          let slide = swiperSlide[index];
-          let imgsource = slide.querySelector('#liz-img');
-          let produtoTitulo = slide.querySelector('.titulo-card');
-          let produtoDescricao = slide.querySelector('.descricao-card');
-          let produtoPreco = slide.querySelector('.titulo-preco');
-          let produtoSubPreco = slide.querySelector('.subtitulo-preco');
-          
-          imgsource.src = `${produto.imgsource}`;
-          produtoTitulo.textContent = `${produto.nome}`;
-          produtoDescricao.textContent = `${produto.descricao}`;
-          produtoPreco.textContent = `R$ ${produto.preco.toFixed(2)}`;
-          produtoSubPreco.textContent = `10x de R$ ${(produto.preco/10).toFixed(2)}`;
-      }
-    });
+    const apiurl = `http://localhost:3000/produtos/linha/${linha}`;
+    const response = await fetch(apiurl);
+
+    if (!response.ok) {
+      fetchDados(fallbackData, linha);
+      throw new Error('Falha na requisição à API.');
+    }
+    const dados = await response.json();
+
+    if(Array.isArray(dados) && dados.length > 0) {
+      fetchDados(dados, linha);
+    } else {
+      fetchDados(fallbackData, linha);
+    }
+
   }
-  catch (error) {
-    console.log(error)
+  catch(error){
+    console.log(error);
+    fetchDados(fallbackData, linha);
   }
 }
 
-async function fetchDadosLily () {
-  try {
-    const apiurl = 'https://beleza-em-essencia-api.vercel.app/produtos/linha/Lily';
-    const dados = await fetch(apiurl)
-      .then(response => response.json())
-      .catch(error => console.log(error));
-    dados.forEach((produto, index) => {
-      let wrapper = document.querySelector('#wrapper-slide-lily');
-      let swiperSlide = wrapper.querySelectorAll('.swiper-slide');
-      if (index < swiperSlide.length) {
-          let slide = swiperSlide[index];
-          let imgsource = slide.querySelector('#lily-img');
-          let produtoTitulo = slide.querySelector('.titulo-card');
-          let produtoDescricao = slide.querySelector('.descricao-card');
-          let produtoPreco = slide.querySelector('.titulo-preco');
-          let produtoSubPreco = slide.querySelector('.subtitulo-preco');
-          
-          imgsource.src = `${produto.imgsource}`;
-          produtoTitulo.textContent = `${produto.nome}`;
-          produtoDescricao.textContent = `${produto.descricao}`;
-          produtoPreco.textContent = `R$ ${produto.preco.toFixed(2)}`;
-          produtoSubPreco.textContent = `10x de R$ ${(produto.preco/10).toFixed(2)}`;
-      }
-    });
-  }
-  catch (error) {
-    console.log(error)
-  }
-}
-
-async function fetchDadosCoffee() {
-  try {
-    const apiurl = 'https://beleza-em-essencia-api.vercel.app/produtos/linha/Coffee';
-    const dados = await fetch(apiurl)
-      .then(response => response.json())
-      .catch(error => console.log(error));
-    dados.forEach((produto, index) => {
-      let wrapper = document.querySelector('#wrapper-slide-coffee');
-      let swiperSlide = wrapper.querySelectorAll('.swiper-slide');
-      if (index < swiperSlide.length) {
-          let slide = swiperSlide[index];
-          let imgsource = slide.querySelector('#coffee-img');
-          let produtoTitulo = slide.querySelector('.titulo-card');
-          let produtoDescricao = slide.querySelector('.descricao-card');
-          let produtoPreco = slide.querySelector('.titulo-preco');
-          let produtoSubPreco = slide.querySelector('.subtitulo-preco');
-          
-          imgsource.src = `${produto.imgsource}`;
-          produtoTitulo.textContent = `${produto.nome}`;
-          produtoDescricao.textContent = `${produto.descricao}`;
-          produtoPreco.textContent = `R$ ${produto.preco.toFixed(2)}`;
-          produtoSubPreco.textContent = `10x de R$ ${(produto.preco/10).toFixed(2)}`;
-      }
-    });
-  }
-  catch (error) {
-    console.log(error)
-  }
+function fetchDados(dados, linha){
+  let wrapper = document.querySelector(`#wrapper-slide-${linha}`);
+  let swiperSlide = wrapper.querySelectorAll('.swiper-slide');
+  dados.forEach((produto, index) => {
+    if (index < swiperSlide.length) {
+        let slide = swiperSlide[index];
+        let imgsource = slide.querySelector(`#${linha}-img`);
+        let produtoTitulo = slide.querySelector('.titulo-card');
+        let produtoDescricao = slide.querySelector('.descricao-card');
+        let produtoPreco = slide.querySelector('.titulo-preco');
+        let produtoSubPreco = slide.querySelector('.subtitulo-preco');
+        
+        imgsource.src = `${produto.imgsource}`;
+        produtoTitulo.textContent = `${produto.nome}`;
+        produtoDescricao.textContent = `${produto.descricao}`;
+        produtoPreco.textContent = `R$ ${produto.preco.toFixed(2)}`;
+        produtoSubPreco.textContent = `10x de R$ ${(produto.preco/10).toFixed(2)}`;
+    }
+  });
 }
