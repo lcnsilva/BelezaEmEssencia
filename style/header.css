@@ -70,6 +70,7 @@
     display: inline-block;
     width: 42px;
     height: 35px;
+    cursor: pointer;
 }
 
 .container__header-logo{
@@ -280,6 +281,7 @@
     width: 20px;
     height: 20px;
     border: none;
+    cursor: pointer;
 }
 
 .botao__modal {
@@ -522,12 +524,13 @@
         font-weight: 300;
     }
 
-    .icone__login-texto a{
+    #botaoLogin{
         text-decoration: underline;
         text-transform: uppercase;
         font-size: 18px;
         font-weight: 700;
         color: var(--cor-fonte-principal);
+        cursor: pointer;
     }
 
     .container__favoritos {

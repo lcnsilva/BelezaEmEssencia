@@ -123,12 +123,13 @@
 .footerBottom p{
     color: white;
 }
-.designer a{
+.designer{
     opacity: 0.7;
     letter-spacing: 1px;
     font-weight: 400;
     text-decoration: none;
     color: white;
+    cursor: pointer;
 }
 
 .contato__email {

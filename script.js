@@ -14,15 +14,12 @@ const textoCompra = document.querySelector(".icone__compras-texto");
 const botaoExcluirCompra = document.querySelectorAll(".dropdown-botao-limpar");
 const containerModal = document.querySelector(".container__modal");
 
-
-
 containerModal.addEventListener("click", (event) => {
   event.preventDefault();
   if (event.target === containerModal) {
     abrirModal();
   }
 })
-
 
 botaoExcluirCompra.forEach((botao) => {
   botao.addEventListener("click", (e) => {
@@ -58,22 +55,18 @@ textoCompra.addEventListener("click", (event) => {
 })
 
 fecharLogin.addEventListener("click", (event) => {
-  event.preventDefault();
   abrirModal();
 })
 
 botaoLoginIcone.addEventListener("click", (event) => {
-  event.preventDefault();
   abrirModal();
 })
 
 botaoLogin.addEventListener("click", (event) => {
-  event.preventDefault();
   abrirModal();
 })
 
 botaoFaixaPromocao.addEventListener("click", (e) => {
-  e.preventDefault();
   const faixa = document.querySelector(".container__promocao");
   if(faixa.style.display == "none"){
     faixa.style.display = "flex";
