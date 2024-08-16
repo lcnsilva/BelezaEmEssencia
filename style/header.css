@@ -60,6 +60,9 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    cursor: pointer;
+    user-select: none;
+
 }
 
 .icone__login{
@@ -94,6 +97,8 @@
     display: inline-block;
     width: 35px;
     height: 32px;
+    user-select: none;
+    cursor: pointer;
 }
 
 .icone__compras{
@@ -104,6 +109,8 @@
     display: inline-block;
     width: 35px;
     height: 33px;
+    cursor: pointer;
+    user-select: none;
 }
 
 #comprasCarrinho{    
@@ -142,22 +149,20 @@
 
 .icone__favoritos-texto{
     display: none;
-}
-
-.icone__favoritos-texto a{
-    text-decoration: none;
     color: white;
     font-weight: 400;
+    user-select: none;
+    cursor: pointer;
 }
+
+
 
 .icone__compras-texto{
     display: none;
-}
-
-.icone__compras-texto a{
-    text-decoration: none;
     color: white;
     font-weight: 400;
+    cursor: pointer;
+    user-select: none;
 }
 
 .logo-beleza {
@@ -494,9 +499,11 @@
     }
 
     .lista__link-desktop{
+        cursor: pointer;
         color: var(--cor-principal);
         text-decoration: none;
         font-size: 18px;
+        user-select: none;
     }
 
     .menu__hamburguer{
