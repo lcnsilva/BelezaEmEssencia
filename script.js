@@ -1,4 +1,7 @@
 import swiper from "./js/swiper.js";
+import criarProdutos from "./js/criarProdutos.js"
+import abrirModal from "./js/abrirModal.js";
+import verificaCampo from "./js/validacaoErro.js";
 
 const botoesComprar = document.querySelectorAll(".botao__carrinho");
 const botoesFavorito = document.querySelectorAll(".botao__favorito");
@@ -13,6 +16,8 @@ const iconeCompra = document.querySelector(".icone__compras");
 const textoCompra = document.querySelector(".icone__compras-texto");
 const botaoExcluirCompra = document.querySelectorAll(".dropdown-botao-limpar");
 const containerModal = document.querySelector(".container__modal");
+const camposDoFormulario = document.querySelectorAll('[required]')
+const formulario = document.querySelector('[data-formulario]');
 
 containerModal.addEventListener("click", (event) => {
   event.preventDefault();
@@ -103,75 +108,12 @@ containerCardBotao.forEach((e) =>{
   }
 })})
 
-function abrirModal(){
-  const modal = document.querySelector(".container__modal");
-  if(modal.style.display == 'none'){
-    modal.style.display = 'block';
-  } else {
-    modal.style.display = 'none';
-  }
-}
-
-function adicionarAoCarrinho() {
-  const contadorCarrinho = document.getElementById("comprasCarrinho");
-  var contadorAtual = parseInt(contadorCarrinho.textContent);
-  contadorAtual++;
-  contadorCarrinho.textContent = contadorAtual;
-}
-
-function toggleDropdown() {
-  const dropdown = document.querySelector(".dropdown");
-  if(dropdown.style.display == 'none') {
-    dropdown.style.display = 'block';
-  } else { 
-    dropdown.style.display = 'none';
-  }
-}
-
-function fecharDropdown() {
-  const dropdown = document.querySelector(".dropdown");
-  if(dropdown.style.display == 'block') {
-    dropdown.style.display = 'none';
-  }
-}
-
-function removerContadorCarrinho() {
-  const contadorCarrinho = document.getElementById("comprasCarrinho");
-  const menu = document.querySelector('#dropdownMenu');
-  const carrinhoVazio = menu.querySelector(".carrinho__vazio")
-  if(!carrinhoVazio){
-    const menu = document.querySelector('#dropdownMenu');
-    var contadorAtual = menu.children.length;
-    contadorCarrinho.textContent = contadorAtual;
-  } else{
-    contadorCarrinho.textContent = 0;
-  }
-  
-}
-
-function favoritarProduto() {
-  const favorito = document.getElementById("iconeFavorito");
-  var isPreenchido = favorito.classList.contains('icone__card-favorito-preenchido');
-  if(isPreenchido) {
-    favorito.classList.remove('icone__card-favorito-preenchido');
-    favorito.classList.add('icone__card-favorito');
-  } else {
-    favorito.classList.add('icone__card-favorito-preenchido');
-    favorito.classList.remove('icone__card-favorito');
-  }
-}
-
 botoesComprar.forEach((e) => {
   e.addEventListener("click", (event) => {
     adicionarAoCarrinho();
-    event.preventDefault();
     removeMensagem();
   })
 })
-
-
-const camposDoFormulario = document.querySelectorAll('[required]')
-const formulario = document.querySelector('[data-formulario]');
 
 formulario.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -187,74 +129,6 @@ camposDoFormulario.forEach((campo) => {
   campo.addEventListener("blur", () => verificaCampo(campo));
   campo.addEventListener("invalid", evento => evento.preventDefault());
 })
-
-const tiposDeErro = [
-  'valueMissing',
-  'typeMismatch',
-  'patternMismatch',
-  'tooShort',
-  'customError'
-]
-
-const mensagens = {
-  username: {
-      valueMissing: "O campo de usuário não pode estar vazio.",
-      patternMismatch: "Por favor, preencha um nome válido.",
-      tooShort: "O nome de usuário é muito curto."
-  },
-  password: {
-      valueMissing: "O campo de senha não pode estar vazio.",
-      typeMismatch: "Por favor, preencha uma senha válida.",
-      tooShort: "A senha inserida é muito curta."
-  },
-  email: {
-    valueMissing: "O campo de e-mail não pode estar vazio.",
-    typeMismatch: "Por favor, preencha um email válido.",
-    tooShort: "O email inserido é muito curto."
-  }
-}
-
-function verificaCampo(campo) {
-  let mensagem = '';
-  campo.setCustomValidity('');
-  tiposDeErro.forEach(erro => {
-      if(campo.validity[erro]){
-          mensagem = mensagens[campo.name][erro]
-      }
-  })
-
-  const mensagemErro = campo.parentNode.querySelector('.mensagem__erro');
-  const validadorDeInput = campo.checkValidity();
-
-  if(!validadorDeInput) {
-      mensagemErro.textContent = mensagem;
-  } else {
-      mensagemErro.textContent = '';
-  }
-}
-
-function verificaCarrinho() {
-  const menu = document.querySelector('#dropdownMenu');
-  const novoItem = document.createElement('li');
-  novoItem.className = 'carrinho__vazio';
-  novoItem.innerHTML = `
-      <div class="carrinho__vazio">
-          O carrinho está vazio
-      </div>
-
-      `
-  if(menu.children.length === 0){
-    menu.appendChild(novoItem);
-  }
-}
-
-function removeMensagem() {
-  const menu = document.querySelector('#dropdownMenu');
-  const carrinhoVazio = document.querySelector(".carrinho__vazio");
-  if(carrinhoVazio){
-    menu.removeChild(carrinhoVazio);
-  }
-}
 
 botoesComprar.forEach((botoes) => {
   botoes.addEventListener("click", () => {
@@ -295,54 +169,62 @@ window.addEventListener('load', () => {
   criarProdutos('coffee');
 });
 
-async function criarProdutos(linha) {
-  const fallbackData = Array.from({length: 5}, (_, index) => ({
-      imgsource: 'imgUrl',
-      nome: 'Produto',
-      descricao: 'Descrição do produto.',
-      preco: 0.00
-  }))
 
-  try {
-    const apiurl = `https://beleza-em-essencia-api.vercel.app/produtos/linha/${linha}`;
-    const response = await fetch(apiurl);
+function adicionarAoCarrinho() {
+  const contadorCarrinho = document.getElementById("comprasCarrinho");
+  var contadorAtual = parseInt(contadorCarrinho.textContent);
+  contadorAtual++;
+  contadorCarrinho.textContent = contadorAtual;
+}
 
-    if (!response.ok) {
-      fetchDados(fallbackData, linha);
-      throw new Error('Falha na requisição à API.');
-    }
-    const dados = await response.json();
-
-    if(Array.isArray(dados) && dados.length > 0) {
-      fetchDados(dados, linha);
-    } else {
-      fetchDados(fallbackData, linha);
-    }
-
-  }
-  catch(error){
-    console.log(error);
-    fetchDados(fallbackData, linha);
+function removerContadorCarrinho() {
+  const contadorCarrinho = document.getElementById("comprasCarrinho");
+  const menu = document.querySelector('#dropdownMenu');
+  const carrinhoVazio = menu.querySelector(".carrinho__vazio")
+  if (!carrinhoVazio) {
+      const menu = document.querySelector('#dropdownMenu');
+      var contadorAtual = menu.children.length;
+      contadorCarrinho.textContent = contadorAtual;
+  } else {
+      contadorCarrinho.textContent = 0;
   }
 }
 
-function fetchDados(dados, linha){
-  let wrapper = document.querySelector(`#wrapper-slide-${linha}`);
-  let swiperSlide = wrapper.querySelectorAll('.swiper-slide');
-  dados.forEach((produto, index) => {
-    if (index < swiperSlide.length) {
-        let slide = swiperSlide[index];
-        let imgsource = slide.querySelector(`#${linha}-img`);
-        let produtoTitulo = slide.querySelector('.titulo-card');
-        let produtoDescricao = slide.querySelector('.descricao-card');
-        let produtoPreco = slide.querySelector('.titulo-preco');
-        let produtoSubPreco = slide.querySelector('.subtitulo-preco');
-        
-        imgsource.src = `${produto.imgsource}`;
-        produtoTitulo.textContent = `${produto.nome}`;
-        produtoDescricao.textContent = `${produto.descricao}`;
-        produtoPreco.textContent = `R$ ${produto.preco.toFixed(2)}`;
-        produtoSubPreco.textContent = `10x de R$ ${(produto.preco/10).toFixed(2)}`;
-    }
-  });
+function verificaCarrinho() {
+  const menu = document.querySelector('#dropdownMenu');
+  if (menu.children.length === 0) {
+      const novoItem = document.createElement('li');
+      novoItem.className = 'carrinho__vazio';
+      novoItem.innerHTML = `
+      <div class="carrinho__vazio">
+          O carrinho está vazio
+      </div>
+
+      `
+      menu.appendChild(novoItem);
+  }
+}
+
+function removeMensagem() {
+  const menu = document.querySelector('#dropdownMenu');
+  const carrinhoVazio = document.querySelector(".carrinho__vazio");
+  if (carrinhoVazio) {
+      menu.removeChild(carrinhoVazio);
+  }
+}
+
+function toggleDropdown() {
+  const dropdown = document.querySelector(".dropdown");
+  if(dropdown.style.display == 'none') {
+    dropdown.style.display = 'block';
+  } else { 
+    dropdown.style.display = 'none';
+  }
+}
+
+function fecharDropdown() {
+  const dropdown = document.querySelector(".dropdown");
+  if(dropdown.style.display == 'block') {
+    dropdown.style.display = 'none';
+  }
 }
