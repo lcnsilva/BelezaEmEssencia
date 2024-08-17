@@ -39,6 +39,7 @@ iconeCompra.addEventListener("click", (event) => {
   botaoExcluirCompra.forEach((botao) => {
     botao.addEventListener("click", (e) => {
       const item = e.target.closest(".dropdown-item");
+      removerItemLocalStorage(item);
       item.remove();
       verificaCarrinho();
       removerContadorCarrinho();
@@ -52,6 +53,7 @@ textoCompra.addEventListener("click", (event) => {
   botaoExcluirCompra.forEach((botao) => {
     botao.addEventListener("click", (e) => {
       const item = e.target.closest(".dropdown-item");
+      removerItemLocalStorage(item);
       item.remove();
       verificaCarrinho();
       removerContadorCarrinho();
@@ -137,38 +139,59 @@ botoesComprar.forEach((botoes) => {
     const tituloProduto = card.querySelector('.titulo-card').textContent;
     const descricaoProduto = card.querySelector('.descricao-card').textContent;
     const precoProduto = card.querySelector('.titulo-preco').textContent;
-    const produto = {
+    if(!localStorage.getItem('counter') === null){
+      localStorage.setItem('counter', 0);
+    } else {
+      var counter = Number(localStorage.getItem('counter'))
+      counter = counter + 1;
+      localStorage.setItem('counter', counter);
+    }
+    const produtoData = {
+      "id" : counter,
       "titulo" : tituloProduto,
       "descricao" : descricaoProduto,
       "preco" : precoProduto,
       "url" : imagemProduto
     }
-    const menu = document.querySelector('#dropdownMenu');
-    const novoItem = document.createElement('li');
-    novoItem.className = 'dropdown-item';
-    novoItem.innerHTML = `
-        <div>
-            <img class="dropdown-item-icon" src="${produto.url}" alt="">
-        </div>
-        <div class="dropdown-item-texto">
-            <span class="titulo-item">${produto.titulo}</span>
-            <span class="descricao-item">${produto.descricao}</span>
-        </div>
-        <span class="preco-item">${produto.preco}</span>
-        <button class="dropdown-botao-limpar"><img src="./img/header/modal/close.svg" width="20px" height="20px"></button>
-
-    `
-    menu.appendChild(novoItem);
+    localStorage.setItem(produtoData.id, JSON.stringify(produtoData));
     fecharDropdown();
   })
 })
 
+function preencherCarrinho() {
+  const items = puxarItensLocalStorage();
+  const dropdown = document.querySelector('#dropdownMenu');
+  dropdown.innerHTML = "";
+  items.forEach( (item) => {
+    const produto = item;
+    const menu = document.querySelector('#dropdownMenu');
+    const novoItem = document.createElement('li');
+    novoItem.className = 'dropdown-item';
+    novoItem.innerHTML = 
+    `
+      <div>
+          <img class="dropdown-item-icon" src="${produto.url}" alt="${produto.id}">
+      </div>
+      <div class="dropdown-item-texto">
+          <span class="titulo-item">${produto.titulo}</span>
+          <span class="descricao-item">${produto.descricao}</span>
+      </div>
+      <span class="preco-item">${produto.preco}</span>
+      <button class="dropdown-botao-limpar"><img src="./img/header/modal/close.svg" width="20px" height="20px"></button>
+
+    `
+    menu.appendChild(novoItem);
+  })  
+  verificaCarrinho();
+  removerContadorCarrinho();
+}
+
 window.addEventListener('load', () => {
+  preencherCarrinho();
   criarProdutos('liz');
   criarProdutos('lily');
   criarProdutos('coffee');
 });
-
 
 function adicionarAoCarrinho() {
   const contadorCarrinho = document.getElementById("comprasCarrinho");
@@ -214,6 +237,7 @@ function removeMensagem() {
 }
 
 function toggleDropdown() {
+  preencherCarrinho();
   const dropdown = document.querySelector(".dropdown");
   if(dropdown.style.display == 'none') {
     dropdown.style.display = 'block';
@@ -227,4 +251,25 @@ function fecharDropdown() {
   if(dropdown.style.display == 'block') {
     dropdown.style.display = 'none';
   }
+}
+
+function removerItemLocalStorage(item) {
+  const img = item.querySelector('.dropdown-item-icon');
+  const alt = img.getAttribute('alt');
+  localStorage.removeItem(alt);
+}
+
+function puxarItensLocalStorage() {
+  const items = [];
+  for(let i = 0 ; i < localStorage.length ; i++) {
+    const key = localStorage.key(i);
+    if(key == 'counter'){
+      continue;
+    }
+    if(key != null) {
+      const item = JSON.parse(localStorage.getItem(key));
+      items.push(item);
+    }
+  }
+  return items;
 }
