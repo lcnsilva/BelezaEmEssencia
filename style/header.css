@@ -235,6 +235,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 1em;
 }
 
 .modal__header{
@@ -265,8 +266,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    padding-bottom: 1em;
+    gap: 0.5em;
+    padding-bottom: 0.5em;
 }
 
 .input__modal {
@@ -441,8 +442,8 @@
     
     .modal {
         padding: 3em;
-        width: 70%;
-        height: 60%;
+        width: 60%;
+        height: 50%;
     }
 
     .dropdown {
@@ -465,8 +466,8 @@
 
     .modal {
         padding: 3em;
-        width: 60%;
-        height: 60%;
+        width: 50%;
+        height: 40%;
     }
 
     .dropdown {
@@ -553,13 +554,6 @@
         align-items: center;
         gap: 0.5em;
     }
-
-    
-
-    
-}
-
-@media screen and (min-width:1280px){
     .icone__login-texto{
         display: inline-block;
     }
@@ -570,6 +564,15 @@
     
     .icone__compras-texto{
         display: inline-block;
+    }
+}
+
+@media screen and (min-width:1280px){
+
+    .modal {
+        padding: 3em;
+        width: 50%;
+        height: 60%;
     }
 
     .dropdown {
